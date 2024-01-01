@@ -4,7 +4,7 @@ defmodule AlgoStrix.HashTable do
 
   You use it to store a colection of data with key and values.
 
-  It deals with hash colisions. 
+  It deals with hash colisions.
 
   Hash Table operations and complexity:
     - loolup: O(1)
