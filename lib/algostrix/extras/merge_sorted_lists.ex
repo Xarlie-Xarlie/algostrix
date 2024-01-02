@@ -1,8 +1,6 @@
 defmodule AlgoStrix.Extras do
   @moduledoc """
-  This module has some implementations of questions from ZMT
-
-  Every question has a doc describing the problem.
+  Merge two sorted arrays keeping the sorting in the result.
   """
 
   @doc """
