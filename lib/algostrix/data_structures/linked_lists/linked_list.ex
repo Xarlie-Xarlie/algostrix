@@ -30,7 +30,7 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
     }
   """
   @spec new() :: t()
-  def new(), do: %__MODULE__{head: nil, tail: nil, length: 0}
+  def new, do: %__MODULE__{head: nil, tail: nil, length: 0}
 
   @spec new(any()) :: t()
   def new(value) do
@@ -45,7 +45,7 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
     iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
     iex> l = LinkedList.new()
     %LinkedList{head: nil, tail: nil, length: 0}
-    iex> LinkedList.append(1)
+    iex> LinkedList.append(l, 1)
     %LinkedList{
       head: %LinkedListNode{value: 1, next: nil},
       tail: %LinkedListNode{value: 1, next: nil},
@@ -314,9 +314,9 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
     %{node | next: insert_node(child_node, index_to_insert, value, current_index + 1)}
   end
 
-  defp insert_node(head, index, value, index) do
-    node = LinkedListNode.new(value, head.next)
-    LinkedListNode.put_next(head, node)
+  defp insert_node(node, index, value, index) do
+    new_node = LinkedListNode.new(value, node.next)
+    LinkedListNode.put_next(node, new_node)
   end
 
   @spec delete_node(LinkedListNode.t(), integer(), integer()) :: LinkedListNode.t()
