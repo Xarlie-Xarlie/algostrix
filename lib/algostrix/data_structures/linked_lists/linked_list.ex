@@ -291,7 +291,8 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
     |> find_new_tail(index)
   end
 
-  @spec nodes_to_list(LinkedListNode.t(), [any()]) :: [any()] | []
+  @spec nodes_to_list(LinkedListNode.t() | nil, [any()]) :: [any()] | []
+  defp nodes_to_list(nil, acc), do: acc
   defp nodes_to_list(%LinkedListNode{next: nil, value: value}, acc), do: [value | acc]
 
   defp nodes_to_list(%LinkedListNode{value: value, next: child_node}, acc),
