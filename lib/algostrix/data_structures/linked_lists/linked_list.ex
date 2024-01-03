@@ -291,6 +291,62 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
     |> find_new_tail(index)
   end
 
+  @doc """
+  Reverse a Linked List.
+
+  Ex:
+    iex> alias Algostrix.DataStructures.LinkedLists.LinkedList, as: LL
+    iex> LL.new() |> LL.reverse()
+    %Algostrix.DataStructures.LinkedLists.LinkedList{
+      head: nil,
+      tail: nil,
+      length: 0
+    }
+
+    iex> alias Algostrix.DataStructures.LinkedLists.LinkedList, as: LL
+    iex> LL.new() |> LL.append(0) |> LL.append(1) |> LL.append(2) |> LL.append(3) |> LL.reverse()
+    %Algostrix.DataStructures.LinkedLists.LinkedList{
+      head: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
+        value: 3,
+        next: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
+          value: 2,
+          next: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
+            value: 1,
+            next: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
+              value: 0,
+              next: nil
+            }
+          }
+        }
+      },
+      tail: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
+        value: 0,
+        next: nil
+      },
+      length: 4
+    }
+  """
+  @spec reverse(t()) :: t()
+  def reverse(%__MODULE__{head: nil, tail: nil}) do
+    new()
+  end
+
+  def reverse(%__MODULE__{head: %LinkedListNode{} = node}) do
+    new()
+    |> do_reverse(node)
+  end
+
+  @spec do_reverse(t(), LinkedListNode.t()) :: t()
+  defp do_reverse(%__MODULE__{} = list, %LinkedListNode{next: nil, value: value}) do
+    prepend(list, value)
+  end
+
+  defp do_reverse(%__MODULE__{} = list, %LinkedListNode{next: next, value: value}) do
+    list
+    |> prepend(value)
+    |> do_reverse(next)
+  end
+
   @spec nodes_to_list(LinkedListNode.t() | nil, [any()]) :: [any()] | []
   defp nodes_to_list(nil, acc), do: acc
   defp nodes_to_list(%LinkedListNode{next: nil, value: value}, acc), do: [value | acc]
