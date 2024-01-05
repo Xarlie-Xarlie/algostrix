@@ -122,7 +122,10 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
            next: nil
          }
        },
-       bottom: nil,
+       bottom: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
+         value: 1,
+         next: nil
+       },
        length: 0
     }}
 
@@ -143,8 +146,8 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
     {value, new()}
   end
 
-  def pop(%__MODULE__{top: %SLLN{value: value, next: next}, length: length}) do
-    {value, %__MODULE__{top: next, length: length - 1}}
+  def pop(%__MODULE__{top: %SLLN{value: value, next: next}, length: length} = stack) do
+    {value, %__MODULE__{stack | top: next, length: length - 1}}
   end
 
   @doc """
