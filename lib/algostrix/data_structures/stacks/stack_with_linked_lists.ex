@@ -20,7 +20,7 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
   """
   defstruct top: nil, bottom: nil, length: 0
 
-  alias Algostrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
+  alias AlgoStrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
 
   @type t :: %__MODULE__{top: nil | SLLN.t(), bottom: nil | SLLN.t(), length: integer()}
 
@@ -102,9 +102,9 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
     new(value)
   end
 
-  def push(%__MODULE__{top: top, length: length} = list, value) do
+  def push(%__MODULE__{top: top, length: length} = stack, value) do
     node = SLLN.new(value, top)
-    %__MODULE__{list | top: node, length: length + 1}
+    %__MODULE__{stack | top: node, length: length + 1}
   end
 
   @doc """

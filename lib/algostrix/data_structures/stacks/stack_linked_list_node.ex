@@ -1,6 +1,6 @@
-defmodule Algostrix.DataStructures.Stacks.StackLinkedListNode do
+defmodule AlgoStrix.DataStructures.Stacks.StackLinkedListNode do
   @moduledoc """
-  Node for implemeting a stack using Linked lists.
+  Node for implementing a Stack using Linked lists.
 
   Ex:
   %Algostrix.DataStructures.Stacks.StackLinkedListNode{
