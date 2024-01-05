@@ -57,9 +57,12 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithList do
     iex> alias AlgoStrix.DataStructures.Stacks.StacksWithList, as: SL
     iex> SL.new(1) |> SL.push(2) |> SL.push(3) |> SL.pop()
     {3, %AlgoStrix.DataStructures.Stacks.StacksWithList{items: [2, 1]}
+
+    iex> SL.new() |> SL.pop()
+    {nil, %AlgoStrix.DataStructures.Stacks.StacksWithList{items: []}
   """
-  @spec pop(stack :: t()) :: t()
-  def pop(%__MODULE__{items: []}), do: new()
+  @spec pop(stack :: t()) :: {nil | any(), t()}
+  def pop(%__MODULE__{items: []}), do: {nil, new()}
   def pop(%__MODULE__{items: [top | rest]}), do: {top, %__MODULE__{items: rest}}
 
   @doc """
