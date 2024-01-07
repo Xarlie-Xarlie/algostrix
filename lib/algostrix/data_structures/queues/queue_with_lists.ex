@@ -1,4 +1,11 @@
 defmodule AlgoStrix.DataStructures.Queues.QueueWithList do
+  @moduledoc """
+  Queue implementation using Lists.
+
+  First In First Out.
+
+  %AlgoStrix.DataStructures.Queues.QueueWithList{items: ["my value"]}
+  """
   defstruct items: []
 
   @type t :: %__MODULE__{items: [any()]}
