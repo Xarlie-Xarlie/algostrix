@@ -2,16 +2,15 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
   @moduledoc """
   Implementation of a Queue using Linked Lists.
 
-  Ex:
   %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
-    first: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
+    first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
       value: "asdf",
-      next: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
+      next: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
         value: "my value",
         next: nil
       }
     },
-    last: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
+    last: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
       value: "my value",
       next: nil
     },
@@ -27,14 +26,16 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
   @doc """
   Creates a new empty Queue.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
-    iex> QLL.new()
-    %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
-      first: nil,
-      last: nil,
-      length: 0
-    }
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
+
+      iex> QLL.new()
+      %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+        first: nil,
+        last: nil,
+        length: 0
+      }
   """
   @spec new() :: t()
   def new, do: %__MODULE__{}
@@ -42,20 +43,22 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
   @doc """
   Creates a new Queue.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
-    iex> QLL.new("my value")
-    %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
-      first: %Algostrix.DataStructures.Queue.QueueLinkedListNode{
-        value: "my value",
-        next: nil
-      },
-      last: %Algostrix.DataStructures.Queue.QueueLinkedListNode{
-        value: "my value",
-        next: nil
-      },
-      length: 1
-    }
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
+
+      iex> QLL.new("my value")
+      %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+        first: %AlgoStrix.DataStructures.Queue.QueueLinkedListNode{
+          value: "my value",
+          next: nil
+        },
+        last: %AlgoStrix.DataStructures.Queue.QueueLinkedListNode{
+          value: "my value",
+          next: nil
+        },
+        length: 1
+      }
   """
   @spec new(value :: any()) :: t()
   def new(value) do
@@ -64,38 +67,40 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
   end
 
   @doc """
-  enqueue a new item to a Queue.
+  Enqueue a new item to a Queue.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
-    iex> QLL.new() |> QLL.enqueue("my value")
-    %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
-      first: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
-        value: "my value",
-        next: nil
-      },
-      last: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
-        value: "my value",
-        next: nil
-      },
-      length: 1
-    }
+  ## Examples:
 
-    iex> QLL.new() |> QLL.enqueue("my value") |> QLL.enqueue("asdf")
-    %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
-      first: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
-        value: "my value",
-        next: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
+      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
+
+      iex> QLL.new() |> QLL.enqueue("my value")
+      %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+        first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+          value: "my value",
+          next: nil
+        },
+        last: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+          value: "my value",
+          next: nil
+        },
+        length: 1
+      }
+
+      iex> QLL.new() |> QLL.enqueue("my value") |> QLL.enqueue("asdf")
+      %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+        first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+          value: "my value",
+          next: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+            value: "asdf",
+            next: nil
+          }
+        },
+        last: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
           value: "asdf",
           next: nil
-        }
-      },
-      last: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
-        value: "asdf",
-        next: nil
-      },
-      length: 2
-    }
+        },
+        length: 2
+      }
   """
   @spec enqueue(stack :: t(), value :: any()) :: t()
   def enqueue(%__MODULE__{first: nil, last: nil, length: 0}, value) do
@@ -111,32 +116,34 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
   @doc """
   Remove the last inserted item in Queue. (FIFO)
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
-    iex> QLL.new(1) |> QLL.enqueue(2) |> QLL.enqueue(3) |> QLL.dequeue()
-    {3,
-     %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
-       first: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
-         value: 2,
-         next: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
+
+      iex> QLL.new(1) |> QLL.enqueue(2) |> QLL.enqueue(3) |> QLL.dequeue()
+      {3,
+       %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+         first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+           value: 2,
+           next: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+             value: 3,
+             next: nil
+           }
+         },
+         last: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
            value: 3,
            next: nil
-         }
-       },
-       last: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
-         value: 3,
-         next: nil
-       },
-       length: 0
-    }}
+         },
+         length: 0
+      }}
 
-    iex> QLL.new(1) |> QLL.dequeue()
-    {1,
-     %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
-       first: nil,
-       last: nil,
-       length: 0
-    }}
+      iex> QLL.new(1) |> QLL.dequeue()
+      {1,
+       %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+         first: nil,
+         last: nil,
+         length: 0
+      }}
   """
   @spec dequeue(stack :: t()) :: {any(), t()}
   def dequeue(%__MODULE__{first: nil, last: nil, length: 0}) do
@@ -154,14 +161,15 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
   @doc """
   Return the value at the first of the Queue.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
-    iex> QLL.new(1) |> QLL.enqueue(2) |> QLL.enqueue(3) |> QLL.peek()
-    3
+  ## Examples:
 
-    iex> alias AlgoStrix.DataStructures.Queues.ueuesWithLikedList, as: QLL
-    iex> QLL.new() |> QLL.peek()
-    nil
+      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
+
+      iex> QLL.new(1) |> QLL.enqueue(2) |> QLL.enqueue(3) |> QLL.peek()
+      3
+
+      iex> QLL.new() |> QLL.peek()
+      nil
   """
   @spec peek(t()) :: nil | any()
   def peek(%__MODULE__{first: nil}), do: nil

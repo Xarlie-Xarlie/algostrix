@@ -4,14 +4,14 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
 
   Ex:
   %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
-    top: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
+    top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
       value: "asdf",
-      next: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
+      next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
         value: "my value",
         next: nil
       }
     },
-    bottom: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
+    bottom: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
       value: "my value",
       next: nil
     },
@@ -27,14 +27,16 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
   @doc """
   Creates a new empty Stack.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
-    iex> SLL.new()
-    %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
-      top: nil,
-      bottom: nil,
-      length: 0
-    }
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+
+      iex> SLL.new()
+      %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+        top: nil,
+        bottom: nil,
+        length: 0
+      }
   """
   @spec new() :: t()
   def new, do: %__MODULE__{}
@@ -42,20 +44,22 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
   @doc """
   Creates a new Stack.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
-    iex> SLL.new("my value")
-    %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
-      top: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
-        value: "my value",
-        next: nil
-      },
-      bottom: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
-        value: "my value",
-        next: nil
-      },
-      length: 1
-    }
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+
+      iex> SLL.new("my value")
+      %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+        top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+          value: "my value",
+          next: nil
+        },
+        bottom: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+          value: "my value",
+          next: nil
+        },
+        length: 1
+      }
   """
   @spec new(value :: any()) :: t()
   def new(value) do
@@ -66,36 +70,38 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
   @doc """
   Push a new item to a Stack.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
-    iex> SLL.new() |> SLL.push("my value")
-    %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
-      top: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
-        value: "my value",
-        next: nil
-      },
-      bottom: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
-        value: "my value",
-        next: nil
-      },
-      length: 1
-    }
+  ## Examples:
 
-    iex> SLL.new() |> SLL.push("my value") |> SLL.push("asdf")
-    %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
-      top: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
-        value: "asdf",
-        next: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+
+      iex> SLL.new() |> SLL.push("my value")
+      %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+        top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
           value: "my value",
           next: nil
-        }
-      },
-      bottom: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
-        value: "my value",
-        next: nil
-      },
-      length: 2
-    }
+        },
+        bottom: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+          value: "my value",
+          next: nil
+        },
+        length: 1
+      }
+
+      iex> SLL.new() |> SLL.push("my value") |> SLL.push("asdf")
+      %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+        top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+          value: "asdf",
+          next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+            value: "my value",
+            next: nil
+          }
+        },
+        bottom: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+          value: "my value",
+          next: nil
+        },
+        length: 2
+      }
   """
   @spec push(stack :: t(), value :: any()) :: t()
   def push(%__MODULE__{top: nil, bottom: nil, length: 0}, value) do
@@ -110,32 +116,34 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
   @doc """
   Remove the last inserted item in Stack. (LIFO)
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
-    iex> SLL.new(1) |> SLL.push(2) |> SLL.push(3) |> SLL.pop()
-    {3,
-     %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
-       top: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
-         value: 2,
-         next: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+
+      iex> SLL.new(1) |> SLL.push(2) |> SLL.push(3) |> SLL.pop()
+      {3,
+       %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+         top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+           value: 2,
+           next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+             value: 1,
+             next: nil
+           }
+         },
+         bottom: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
            value: 1,
            next: nil
-         }
-       },
-       bottom: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
-         value: 1,
-         next: nil
-       },
-       length: 0
-    }}
+         },
+         length: 0
+      }}
 
-    iex> SLL.new(1) |> SLL.pop()
-    {1,
-     %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
-       top: nil,
-       bottom: nil,
-       length: 0
-    }}
+      iex> SLL.new(1) |> SLL.pop()
+      {1,
+       %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+         top: nil,
+         bottom: nil,
+         length: 0
+      }}
   """
   @spec pop(stack :: t()) :: {any(), t()}
   def pop(%__MODULE__{top: nil, bottom: nil, length: 0}) do
@@ -153,14 +161,16 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
   @doc """
   Return the value at the top of the Stack.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
-    iex> SLL.new(1) |> SLL.push(2) |> SLL.push(3) |> SLL.peek()
-    3
+  ## Examples:
 
-    iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
-    iex> SLL.new() |> SLL.peek()
-    nil
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+
+      iex> SLL.new(1) |> SLL.push(2) |> SLL.push(3) |> SLL.peek()
+      3
+
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+      iex> SLL.new() |> SLL.peek()
+      nil
   """
   @spec peek(t()) :: nil | any()
   def peek(%__MODULE__{top: nil}), do: nil

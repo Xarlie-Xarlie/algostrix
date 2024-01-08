@@ -12,13 +12,15 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedListNode do
   @doc """
   Creates a new Linked List Node.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.LinkedListNode
-    iex> LinkedListNode.new(10)
-    iex> %LinkedListNode{value: 10, next: nil}
+  ## Examples:
 
-    iex> LinkedListNode.new(20, %LinkedListNode{value: 10, next: nil})
-    iex> %LinkedListNode{value: 20, next: %LinkedListNode{value: 10, next: nil}}
+      iex> alias Algostrix.DataStructures.LinkedLists.LinkedListNode
+
+      iex> LinkedListNode.new(10)
+      %LinkedListNode{value: 10, next: nil}
+
+      iex> LinkedListNode.new(20, %LinkedListNode{value: 10, next: nil})
+      %LinkedListNode{value: 20, next: %LinkedListNode{value: 10, next: nil}}
   """
   @spec new(value :: any()) :: t()
   def new(value), do: %__MODULE__{value: value, next: nil}
@@ -31,16 +33,18 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedListNode do
 
   Useful to add a new Linked List Node element into a Linked List.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.LinkedListNode
-    iex> n1 = LinkedListNode.new(10, nil)
-    iex> %LinkedListNode{value: 10, next: nil}
+  ## Examples:
 
-    iex> n2 = LinkedListNode.new(20, nil)
-    iex> %LinkedListNode{value: 20, next: nil}
+      iex> alias Algostrix.DataStructures.LinkedLists.LinkedListNode
 
-    iex> LinkedListNode.put_next(n1, n2)
-    iex> %LinkedListNode{value: 10, next: %LinkedListNode{value: 20, next: nil}}
+      iex> n1 = LinkedListNode.new(10, nil)
+      %LinkedListNode{value: 10, next: nil}
+
+      iex> n2 = LinkedListNode.new(20, nil)
+      %LinkedListNode{value: 20, next: nil}
+
+      iex> LinkedListNode.put_next(n1, n2)
+      %LinkedListNode{value: 10, next: %LinkedListNode{value: 20, next: nil}}
   """
   @spec put_next(t(), next :: t() | nil) :: t()
   def put_next(%__MODULE__{} = node, next), do: %__MODULE__{node | next: next}

@@ -5,13 +5,13 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
   It contains the most commum functions of an Binary Search Tree.
 
   %AlgoStrix.DataStructures.Trees.BinarySearchTree{
-    root: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-      right: %Algostrix.DataStructures.Trees.BinaryTreeNode{
+    root: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      right: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
         right: nil,
         left: nil,
         value: 3
       },
-      left: %Algostrix.DataStructures.Trees.BinaryTreeNode{
+      left: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
         right: nil,
         left: nil,
         value: 1
@@ -21,7 +21,7 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
   }
   """
 
-  alias Algostrix.DataStructures.Trees.BinaryTreeNode, as: BTN
+  alias AlgoStrix.DataStructures.Trees.BinaryTreeNode, as: BTN
 
   defstruct root: nil
 
@@ -30,10 +30,12 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
   @doc """
   Creates an Empty Binary Search Tree.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
-    iex> BST.new()
-    %AlgoStrix.DataStructures.Trees.BinarySearchTree{root: nil}
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
+
+      iex> BST.new()
+      %AlgoStrix.DataStructures.Trees.BinarySearchTree{root: nil}
   """
   @spec new() :: t()
   def new, do: %__MODULE__{}
@@ -41,16 +43,18 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
   @doc """
   Creates an Binary Search Tree with a root node.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
-    iex> BST.new(1)
-    %AlgoStrix.DataStructures.Trees.BinarySearchTree{
-      root: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-        value: 1,
-        right: nil,
-        left: nil
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
+
+      iex> BST.new(1)
+      %AlgoStrix.DataStructures.Trees.BinarySearchTree{
+        root: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+          value: 1,
+          right: nil,
+          left: nil
+        }
       }
-    }
   """
   @spec new(value :: any()) :: t()
   def new(value), do: %__MODULE__{root: BTN.new(value)}
@@ -64,24 +68,26 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
 
   Inserts by recursive calls with tail cail optimization.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
-    iex> BST.new() |> BST.insert(2) |> BST.insert(1) |> BST.insert(3)
-    %AlgoStrix.DataStructures.Trees.BinarySearchTree{
-      root: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-        right: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-          right: nil,
-          left: nil,
-          value: 3
-        },
-        left: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-          right: nil,
-          left: nil,
-          value: 1
-        },
-        value: 2
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
+
+      iex> BST.new() |> BST.insert(2) |> BST.insert(1) |> BST.insert(3)
+      %AlgoStrix.DataStructures.Trees.BinarySearchTree{
+        root: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+          right: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+            right: nil,
+            left: nil,
+            value: 3
+          },
+          left: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+            right: nil,
+            left: nil,
+            value: 1
+          },
+          value: 2
+        }
       }
-    }
   """
   @spec insert(tree :: t(), value :: any()) :: t()
   def insert(%__MODULE__{root: nil}, value) do
@@ -98,32 +104,35 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
   If the value isn't contained in the tree,
   it returns nil
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
-    iex> bst = BST.new() |> BST.insert(2) |> BST.insert(1) |> BST.insert(3)
-    iex> BST.lookup(bst, 3)
-    %Algostrix.DataStructures.Trees.BinaryTreeNode{right: nil, left: nil, value: 3}
-    
-    iex> BST.lookup(bst, 2)
-    %Algostrix.DataStructures.Trees.BinaryTreeNode{
-      right: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-        right: nil,
-        left: nil,
-        value: 3
-      },
-      left: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-        right: nil,
-        left: nil,
-        value: 1
-      },
-      value: 2
-    }
+  ## Examples:
 
-    iex> BST.lookup(bst, 1)
-    %Algostrix.DataStructures.Trees.BinaryTreeNode{right: nil, left: nil, value: 1}
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
 
-    iex> BST.lookup(bst, 4)
-    nil
+      iex> bst = BST.new() |> BST.insert(2) |> BST.insert(1) |> BST.insert(3)
+
+      iex> BST.lookup(bst, 3)
+      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{right: nil, left: nil, value: 3}
+
+      iex> BST.lookup(bst, 2)
+      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+        right: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+          right: nil,
+          left: nil,
+          value: 3
+        },
+        left: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+          right: nil,
+          left: nil,
+          value: 1
+        },
+        value: 2
+      }
+
+      iex> BST.lookup(bst, 1)
+      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{right: nil, left: nil, value: 1}
+
+      iex> BST.lookup(bst, 4)
+      nil
   """
   @spec lookup(tree :: t(), value :: any()) :: nil | BTN.t()
   def lookup(%__MODULE__{root: nil}, _value), do: nil
@@ -135,54 +144,55 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
   @doc """
   Remove an item from the Binary Search Tree.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
-    iex> tree = Enum.reduce([17, 10, 28, 4, 12, 20], BST.new(), &BST.insert(&2, &1)) 
-    %AlgoStrix.DataStructures.Trees.BinarySearchTree{
-      root: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-        right: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-          right: nil,
-          left: %Algostrix.DataStructures.Trees.BinaryTreeNode{
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
+
+      iex> tree = Enum.reduce([17, 10, 28, 4, 12, 20], BST.new(), &BST.insert(&2, &1))
+      %AlgoStrix.DataStructures.Trees.BinarySearchTree{
+        root: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+          right: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
             right: nil,
-            left: nil,
-            value: 20
+            left: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+              right: nil,
+              left: nil,
+              value: 20
+            },
+            value: 28
           },
-          value: 28
-        },
-        left: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-          right: %Algostrix.DataStructures.Trees.BinaryTreeNode{
+          left: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+            right: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+              right: nil,
+              left: nil,
+              value: 12
+            },
+            left: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+              right: nil,
+              left: nil,
+              value: 4
+            },
+            value: 10
+          },
+          value: 17
+        }
+      }
+
+      iex> tree |> BST.remove(17) |> BST.remove(28) |> BST.remove(20)
+      %AlgoStrix.DataStructures.Trees.BinarySearchTree{
+        root: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+          right: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
             right: nil,
             left: nil,
             value: 12
           },
-          left: %Algostrix.DataStructures.Trees.BinaryTreeNode{
+          left: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
             right: nil,
             left: nil,
             value: 4
           },
           value: 10
-        },
-        value: 17
+        }
       }
-    }
-
-    iex> tree |> BST.remove(17) |> BST.remove(28) |> BST.remove(20)
-    %AlgoStrix.DataStructures.Trees.BinarySearchTree{
-      root: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-        right: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-          right: nil,
-          left: nil,
-          value: 12
-        },
-        left: %Algostrix.DataStructures.Trees.BinaryTreeNode{
-          right: nil,
-          left: nil,
-          value: 4
-        },
-        value: 10
-      }
-    }
-
   """
   @spec remove(t(), value :: any()) :: t()
   def remove(%__MODULE__{root: nil}, _value), do: new()
@@ -196,14 +206,17 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
 
   Calculates the bigger height.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
-    iex> tree = Enum.reduce([17, 10, 28, 4, 12, 20], BST.new(), &BST.insert(&2, &1)) 
-    iex> BST.height(tree)
-    3
+  ## Examples:
 
-    iex> BST.new() |> BST.height()
-    0
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
+
+      iex> tree = Enum.reduce([17, 10, 28, 4, 12, 20], BST.new(), &BST.insert(&2, &1))
+
+      iex> BST.height(tree)
+      3
+
+      iex> BST.new() |> BST.height()
+      0
   """
   @spec height(t() | BTN.t()) :: pos_integer()
   def height(%__MODULE__{root: nil}), do: 0
@@ -217,14 +230,17 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
 
   Each node adds one unit to size.
 
-  Ex: 
-    iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
-    iex> tree = Enum.reduce(1..1000, BST.new(), &BST.insert(&2, &1)) 
-    iex> BST.size(tree)
-    1000
+  ## Examples:
 
-    iex> BST.new() |> BST.size()
-    0
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
+
+      iex> tree = Enum.reduce(1..1000, BST.new(), &BST.insert(&2, &1))
+
+      iex> BST.size(tree)
+      1000
+
+      iex> BST.new() |> BST.size()
+      0
   """
   @spec size(tree :: t()) :: pos_integer()
   def size(%__MODULE__{root: nil}), do: 0
@@ -236,21 +252,28 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
   @doc """
   Traverse the entire tree In Order.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
-    iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
-    1
-    5
-    8
-    9
-    10
-    17
-    19
-    20
-    28
-    29
-    34
-    :ok
+  Printing every value.
+
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
+
+      iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
+      %AlgoStrix.DataStructures.Trees.BinarySearchTree{...}
+
+      iex> BST.print_in_order(tree)
+      1
+      5
+      8
+      9
+      10
+      17
+      19
+      20
+      28
+      29
+      34
+      :ok
   """
   @spec print_in_order(tree :: t()) :: nil | :ok
   def print_in_order(%__MODULE__{root: nil}), do: nil
@@ -272,9 +295,10 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST 
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
 
       iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
+      %AlgoStrix.DataStructures.Trees.BinarySearchTree{...}
 
       iex> BST.to_list_in_order(tree)
       [1, 5, 8, 9, 10, 17, 19, 20, 28, 29, 34]
@@ -290,6 +314,41 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
   end
 
   @doc """
+  Traverse the entire tree In Pre Order.
+
+  Printing every value.
+
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
+
+      iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
+      %AlgoStrix.DataStructures.Trees.BinarySearchTree{...}
+
+      iex> BST.print_in_pre_order(tree)
+      17
+      10
+      5
+      1
+      8
+      9
+      28
+      20
+      19
+      29
+      34
+      :ok
+  """
+  @spec print_in_pre_order(tree :: t()) :: nil | :ok
+  def print_in_pre_order(%__MODULE__{root: nil}), do: nil
+
+  def print_in_pre_order(%__MODULE__{root: %BTN{right: right, left: left, value: value}}) do
+    IO.puts(value)
+    pre_order(left)
+    pre_order(right)
+  end
+
+  @doc """
   Convert a Binary Search Tree into a list.
 
   Pre Order Traversal.
@@ -300,7 +359,7 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST 
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
 
       iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
       %AlgoStrix.DataStructures.Trees.BinarySearchTree{...}
@@ -319,6 +378,41 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
   end
 
   @doc """
+  Traverse the entire tree In Post Order.
+
+  Printing every value.
+
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
+
+      iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
+      %AlgoStrix.DataStructures.Trees.BinarySearchTree{...}
+
+      iex> BST.print_in_pos_order(tree)
+      1
+      9
+      8
+      5
+      10
+      19
+      20
+      34
+      29
+      28
+      17
+      :ok
+  """
+  @spec print_in_pos_order(tree :: t()) :: nil | :ok
+  def print_in_pos_order(%__MODULE__{root: nil}), do: nil
+
+  def print_in_pos_order(%__MODULE__{root: %BTN{right: right, left: left, value: value}}) do
+    pos_order(left)
+    pos_order(right)
+    IO.puts(value)
+  end
+
+  @doc """
   Convert a Binary Search Tree into a list.
 
   Post Order traversal.
@@ -329,7 +423,7 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST 
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
 
       iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
       %AlgoStrix.DataStructures.Trees.BinarySearchTree{...}
@@ -345,89 +439,6 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
     |> acc_list_pos_order(right)
     |> then(&[value | &1])
     |> Enum.reverse()
-  end
-
-  @spec acc_list_in_order([any()], nil | BTN.t()) :: [any()]
-  defp acc_list_in_order(acc, nil), do: acc
-
-  defp acc_list_in_order(acc, %BTN{left: left, right: right, value: value}) do
-    acc_list_in_order(acc, left)
-    |> then(&[value | &1])
-    |> then(&acc_list_in_order(&1, right))
-  end
-
-  @spec acc_list_pre_order([any()], nil | BTN.t()) :: [any()]
-  defp acc_list_pre_order(acc, nil), do: acc
-
-  defp acc_list_pre_order(acc, %BTN{left: left, right: right, value: value}) do
-    [value | acc]
-    |> acc_list_pre_order(left)
-    |> acc_list_pre_order(right)
-  end
-
-  @spec acc_list_pos_order([any()], nil | BTN.t()) :: [any()]
-  defp acc_list_pos_order(acc, nil), do: acc
-
-  defp acc_list_pos_order(acc, %BTN{left: left, right: right, value: value}) do
-    acc_list_pos_order(acc, left)
-    |> acc_list_pos_order(right)
-    |> then(&[value | &1])
-  end
-
-  @doc """
-  Traverse the entire tree In Pre Order.
-
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
-    iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
-    17
-    10
-    5
-    1
-    8
-    9
-    28
-    20
-    19
-    29
-    34
-    :ok
-  """
-  @spec print_in_pre_order(tree :: t()) :: nil | :ok
-  def print_in_pre_order(%__MODULE__{root: nil}), do: nil
-
-  def print_in_pre_order(%__MODULE__{root: %BTN{right: right, left: left, value: value}}) do
-    IO.puts(value)
-    pre_order(left)
-    pre_order(right)
-  end
-
-  @doc """
-  Traverse the entire tree In Post Order.
-
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST
-    iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
-    1
-    9
-    8
-    5
-    10
-    19
-    20
-    34
-    29
-    28
-    17
-    :ok
-  """
-  @spec print_in_pos_order(tree :: t()) :: nil | :ok
-  def print_in_pos_order(%__MODULE__{root: nil}), do: nil
-
-  def print_in_pos_order(%__MODULE__{root: %BTN{right: right, left: left, value: value}}) do
-    pos_order(left)
-    pos_order(right)
-    IO.puts(value)
   end
 
   @spec in_order(nil | BTN.t()) :: :ok
@@ -455,6 +466,33 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
     pos_order(left)
     pos_order(right)
     IO.puts(value)
+  end
+
+  @spec acc_list_in_order([any()], nil | BTN.t()) :: [any()]
+  defp acc_list_in_order(acc, nil), do: acc
+
+  defp acc_list_in_order(acc, %BTN{left: left, right: right, value: value}) do
+    acc_list_in_order(acc, left)
+    |> then(&[value | &1])
+    |> then(&acc_list_in_order(&1, right))
+  end
+
+  @spec acc_list_pre_order([any()], nil | BTN.t()) :: [any()]
+  defp acc_list_pre_order(acc, nil), do: acc
+
+  defp acc_list_pre_order(acc, %BTN{left: left, right: right, value: value}) do
+    [value | acc]
+    |> acc_list_pre_order(left)
+    |> acc_list_pre_order(right)
+  end
+
+  @spec acc_list_pos_order([any()], nil | BTN.t()) :: [any()]
+  defp acc_list_pos_order(acc, nil), do: acc
+
+  defp acc_list_pos_order(acc, %BTN{left: left, right: right, value: value}) do
+    acc_list_pos_order(acc, left)
+    |> acc_list_pos_order(right)
+    |> then(&[value | &1])
   end
 
   @spec calculate_size(nil | BTN.t()) :: pos_integer()

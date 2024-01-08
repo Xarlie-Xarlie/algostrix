@@ -7,11 +7,11 @@ defmodule AlgoStrix.Extras do
   Merge two sorted arrays keeping the sorting in the result.
 
   Goal Example:
-    list_one = [0, 3, 4, 31]
-    list_two = [4, 5, 6, 30, 32]
+      list_one = [0, 3, 4, 31]
+      list_two = [4, 5, 6, 30, 32]
 
-    merge_sorted_lists(list_one, list_two)
-    [32, 31, 30, 6, 5, 4, 4, 3, 0]
+      merge_sorted_lists(list_one, list_two)
+      [32, 31, 30, 6, 5, 4, 4, 3, 0]
 
   This implementation returns a list in descending order.
   The descending order is keeped due to Tail Call Optimization.

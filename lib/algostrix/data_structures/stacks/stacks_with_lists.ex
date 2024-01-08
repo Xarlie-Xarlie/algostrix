@@ -5,7 +5,6 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithList do
   This approach is simple and is efficient, because
   under the hood, elixir lists are linked lists.
 
-  Ex:
   %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
     items: [1, 2, 3, 4, 5]
   }
@@ -17,10 +16,12 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithList do
   @doc """
   Creates a new empty Stack.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Stacks.StacksWithList, as: SL
-    iex> SL.new()
-    %AlgoStrix.DataStructures.Stacks.StacksWithList{items: []}
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithList, as: SL
+
+      iex> SL.new()
+      %AlgoStrix.DataStructures.Stacks.StacksWithList{items: []}
   """
   @spec new() :: t()
   def new, do: %__MODULE__{items: []}
@@ -28,10 +29,12 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithList do
   @doc """
   Creates a new Stack.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Stacks.StacksWithList, as: SL
-    iex> SL.new(1)
-    %AlgoStrix.DataStructures.Stacks.StacksWithList{items: [1]}
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithList, as: SL
+
+      iex> SL.new(1)
+      %AlgoStrix.DataStructures.Stacks.StacksWithList{items: [1]}
   """
   @spec new(value :: any()) :: t()
   def new(value), do: %__MODULE__{items: [value]}
@@ -39,13 +42,15 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithList do
   @doc """
   Push a new item to Stack.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Stacks.StacksWithList, as: SL
-    iex> SL.new(1) |> SL.push(2)
-    %AlgoStrix.DataStructures.Stacks.StacksWithList{items: [2, 1]}
+  ## Examples:
 
-    iex> SL.new(1) |> SL.push(2) |> SL.push(3)
-    %AlgoStrix.DataStructures.Stacks.StacksWithList{items: [3, 2, 1]}
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithList, as: SL
+
+      iex> SL.new(1) |> SL.push(2)
+      %AlgoStrix.DataStructures.Stacks.StacksWithList{items: [2, 1]}
+
+      iex> SL.new(1) |> SL.push(2) |> SL.push(3)
+      %AlgoStrix.DataStructures.Stacks.StacksWithList{items: [3, 2, 1]}
   """
   @spec push(stack :: t(), value :: any()) :: t()
   def push(%__MODULE__{items: items}, value), do: %__MODULE__{items: [value | items]}
@@ -53,13 +58,15 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithList do
   @doc """
   Remove the last inserted item of Stack.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Stacks.StacksWithList, as: SL
-    iex> SL.new(1) |> SL.push(2) |> SL.push(3) |> SL.pop()
-    {3, %AlgoStrix.DataStructures.Stacks.StacksWithList{items: [2, 1]}
+  ## Examples:
 
-    iex> SL.new() |> SL.pop()
-    {nil, %AlgoStrix.DataStructures.Stacks.StacksWithList{items: []}
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithList, as: SL
+
+      iex> SL.new(1) |> SL.push(2) |> SL.push(3) |> SL.pop()
+      {3, %AlgoStrix.DataStructures.Stacks.StacksWithList{items: [2, 1]}
+
+      iex> SL.new() |> SL.pop()
+      {nil, %AlgoStrix.DataStructures.Stacks.StacksWithList{items: []}
   """
   @spec pop(stack :: t()) :: {nil | any(), t()}
   def pop(%__MODULE__{items: []}), do: {nil, new()}
@@ -68,10 +75,12 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithList do
   @doc """
   Return the element at the top of the Stack.
 
-  Ex:
-    iex> alias AlgoStrix.DataStructures.Stacks.StacksWithList, as: SL
-    iex> SL.new(1) |> SL.push(2) |> SL.push(3) |> SL.peek()
-    3
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithList, as: SL
+
+      iex> SL.new(1) |> SL.push(2) |> SL.push(3) |> SL.peek()
+      3
   """
   @spec peek(stack :: t()) :: nil | any()
   def peek(%__MODULE__{items: []}), do: nil

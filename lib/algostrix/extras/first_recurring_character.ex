@@ -6,14 +6,17 @@ defmodule AlgoStrix.FirstRecurringCharacter do
   @doc """
   Return the first recurring element in a list of items.
 
-  Ex:
-    iex> list = [1, 2, 3, 2, 5]
-    iex> AlgoStrix.FirstRecurringCharacter.check(list)
-    2
+  ## Examples:
 
-    iex> list = [1, 2, 5, 5, 2, 3]
-    iex> AlgoStrix.FirstRecurringCharacter.check(list)
-    5
+      iex> list = [1, 2, 3, 2, 5]
+
+      iex> AlgoStrix.FirstRecurringCharacter.check(list)
+      2
+
+      iex> list = [1, 2, 5, 5, 2, 3]
+
+      iex> AlgoStrix.FirstRecurringCharacter.check(list)
+      5
   """
   @spec first_recurring_character([term()]) :: term() | nil
   def first_recurring_character(list) do

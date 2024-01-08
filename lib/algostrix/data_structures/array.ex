@@ -10,7 +10,7 @@ defmodule AlgoStrix.Array do
       - push: O(1)
       - insert: O(n)
       - delete: O(n)
-    
+
     - dynamic:
       - loolup: O(1)
       - append: O(1) or O(n)
@@ -35,11 +35,12 @@ defmodule AlgoStrix.Array do
   Only accepts positive indexes.
 
   ## Examples:
-    iex> AlgoStrix.Array.get(%AlgoStrix.Array{length: 1, data: %{"0" => 0}}, 0)
-    0
 
-    iex> AlgoStrix.Array.get(%AlgoStrix.Array{length: 1, data: %{"0" => 0}}, 1)
-    nil
+      iex> AlgoStrix.Array.get(%AlgoStrix.Array{length: 1, data: %{"0" => 0}}, 0)
+      0
+
+      iex> AlgoStrix.Array.get(%AlgoStrix.Array{length: 1, data: %{"0" => 0}}, 1)
+      nil
   """
   @spec get(t(), integer()) :: any() | nil
   def get(%__MODULE__{length: length} = array, index) when index >= 0 and index < length do
@@ -52,11 +53,12 @@ defmodule AlgoStrix.Array do
   Pushes a new item on array.
 
   ## Examples:
-    iex> AlgoStrix.Array.push(%AlgoStrix.Array{length: 0, data: %{}}, 0)
-    %AlgoStrix.Array{length: 1, data: %{"0" => 0}}
 
-    iex> AlgoStrix.Array.push(%AlgoStrix.Array{length: 1, data: %{"0" => 0}}, 1)
-    %AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}
+      iex> AlgoStrix.Array.push(%AlgoStrix.Array{length: 0, data: %{}}, 0)
+      %AlgoStrix.Array{length: 1, data: %{"0" => 0}}
+
+      iex> AlgoStrix.Array.push(%AlgoStrix.Array{length: 1, data: %{"0" => 0}}, 1)
+      %AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}
   """
   @spec push(t(), any()) :: t()
   def push(%__MODULE__{length: length, data: data} = array, item) do
@@ -67,11 +69,12 @@ defmodule AlgoStrix.Array do
   Pop the last item on array.
 
   ## Examples:
-    iex> AlgoStrix.Array.pop(%AlgoStrix.Array{length: 0, data: %{}})
-    %AlgoStrix.Array{length: 0, data: %{}}
 
-    iex> AlgoStrix.Array.pop(%AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}})
-    %AlgoStrix.Array{length: 1, data: %{"0" => 0}}
+      iex> AlgoStrix.Array.pop(%AlgoStrix.Array{length: 0, data: %{}})
+      %AlgoStrix.Array{length: 0, data: %{}}
+
+      iex> AlgoStrix.Array.pop(%AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}})
+      %AlgoStrix.Array{length: 1, data: %{"0" => 0}}
   """
   @spec pop(t()) :: t()
   def pop(%__MODULE__{length: length, data: data} = array) when map_size(data) > 0 do
@@ -88,17 +91,18 @@ defmodule AlgoStrix.Array do
   Only accepts positive indexes.
 
   ## Examples:
-    iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 0, data: %{}}, 0)
-    %AlgoStrix.Array{length: 0, data: %{}}
 
-    iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}, 1)
-    %AlgoStrix.Array{length: 1, data: %{"0" => 0}}
+      iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 0, data: %{}}, 0)
+      %AlgoStrix.Array{length: 0, data: %{}}
 
-    iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}, 0)
-    %AlgoStrix.Array{length: 1, data: %{"0" => 1}}
+      iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}, 1)
+      %AlgoStrix.Array{length: 1, data: %{"0" => 0}}
 
-    iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 1, data: %{"0" => 1}}, 0)
-    %AlgoStrix.Array{length: 0, data: %{}}
+      iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}, 0)
+      %AlgoStrix.Array{length: 1, data: %{"0" => 1}}
+
+      iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 1, data: %{"0" => 1}}, 0)
+      %AlgoStrix.Array{length: 0, data: %{}}
   """
   @spec delete(t(), integer()) :: t()
   def delete(%__MODULE__{length: length, data: data} = array, index)

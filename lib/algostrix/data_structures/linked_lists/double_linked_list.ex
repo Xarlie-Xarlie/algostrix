@@ -33,12 +33,14 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
   @doc """
   Create a new Double Linked List.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList
-    iex> DoubleLinkedList.new()
-    %Algostrix.DataStructures.LinkedLists.DoubleLinkedList{
-      head: nil, tail: nil, length: 0
-    }
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList
+
+      iex> DoubleLinkedList.new()
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedList{
+        head: nil, tail: nil, length: 0
+      }
   """
   @spec new() :: t()
   def new, do: %__MODULE__{head: nil, tail: nil, length: 0}
@@ -46,14 +48,16 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
   @doc """
   Create a new Double Linked List.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList
-    iex> DoubleLinkedList.new(1)
-    %Algostrix.DataStructures.LinkedLists.DoubleLinkedList{
-      head: %DoubleLinkedListNode{value: 1, right: nil, left: nil},
-      tail: %DoubleLinkedListNode{value: 1, right: nil, left: nil},
-      length: 1
-    }
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList
+
+      iex> DoubleLinkedList.new(1)
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedList{
+        head: %DoubleLinkedListNode{value: 1, right: nil, left: nil},
+        tail: %DoubleLinkedListNode{value: 1, right: nil, left: nil},
+        length: 1
+      }
   """
   @spec new(any()) :: t()
   def new(value) do
@@ -64,14 +68,26 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
   @doc """
   Append an item at the end of a Double Linked List.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
-    iex> D.new() |> D.append(1) |> D.append(2)
-    %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
-      head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-        value: 1,
-        left: nil,
-        right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
+
+      iex> D.new() |> D.append(1) |> D.append(2)
+      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
+        head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          value: 1,
+          left: nil,
+          right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            value: 2,
+            left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+              value: 1,
+              left: nil,
+              right: nil
+            },
+            right: nil
+          }
+        },
+        tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 2,
           left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
             value: 1,
@@ -79,19 +95,9 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
             right: nil
           },
           right: nil
-        }
-      },
-      tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-        value: 2,
-        left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-          value: 1,
-          left: nil,
-          right: nil
         },
-        right: nil
-      },
-      length: 2
-    }
+        length: 2
+      }
   """
   @spec append(t(), any()) :: t()
   def append(%__MODULE__{head: nil, tail: nil, length: length}, value) do
@@ -116,82 +122,15 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
 
   Tail is automatically updated if needed.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
-    iex> DLL.new(1) |> DLL.append(2) |> DLL.insert(1, 3)
-    %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
-      head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-        value: 1,
-        left: nil,
-        right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-          value: 3,
-          left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-            value: 1,
-            left: nil,
-            right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-              value: 2,
-              left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-                value: 1,
-                left: nil,
-                right: nil
-              },
-              right: nil
-            }
-          },
-          right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-            value: 2,
-            left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-              value: 1,
-              left: nil,
-              right: nil
-            },
-            right: nil
-          }
-        }
-      },
-      tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-        value: 2,
-        left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
+
+      iex> DLL.new(1) |> DLL.append(2) |> DLL.insert(1, 3)
+      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
+        head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 1,
           left: nil,
-          right: nil
-        },
-        right: nil
-      },
-      length: 3
-    }
-  """
-  @spec insert(list :: t(), index :: integer(), value :: any()) :: t()
-  def insert(list, 0, value) do
-    prepend(list, value)
-  end
-
-  def insert(%__MODULE__{length: length} = list, index, value) when index >= length do
-    append(list, value)
-  end
-
-  def insert(%__MODULE__{head: head, length: length} = list, index, value) do
-    %__MODULE__{list | head: insert_node(head, index, value, 1), length: length + 1}
-  end
-
-  @doc """
-  Pre append an item at the beggining of the Double Linked List.
-  In others words, add a new item at position 0 of List.
-
-  Ex:
-    iex> aliasAlgostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
-    iex> DLL.new(1) |> DLL.append(2) |> DLL.insert(1, 3) |> DLL.prepend(0)
-    %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
-      head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-        value: 0,
-        left: nil,
-        right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-          value: 1,
-          left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-            value: 0,
-            left: nil,
-            right: nil
-          },
           right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
             value: 3,
             left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
@@ -217,23 +156,94 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
               right: nil
             }
           }
-        }
-      },
-      tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-        value: 2,
-        left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-          value: 1,
+        },
+        tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          value: 2,
           left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-            value: 0,
+            value: 1,
             left: nil,
             right: nil
           },
           right: nil
         },
-        right: nil
-      },
-      length: 4
-    }
+        length: 3
+      }
+  """
+  @spec insert(list :: t(), index :: integer(), value :: any()) :: t()
+  def insert(list, 0, value) do
+    prepend(list, value)
+  end
+
+  def insert(%__MODULE__{length: length} = list, index, value) when index >= length do
+    append(list, value)
+  end
+
+  def insert(%__MODULE__{head: head, length: length} = list, index, value) do
+    %__MODULE__{list | head: insert_node(head, index, value, 1), length: length + 1}
+  end
+
+  @doc """
+  Pre append an item at the beggining of the Double Linked List.
+  In others words, add a new item at position 0 of List.
+
+  ## Examples:
+
+      iex> aliasAlgostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
+
+      iex> DLL.new(1) |> DLL.append(2) |> DLL.insert(1, 3) |> DLL.prepend(0)
+      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
+        head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          value: 0,
+          left: nil,
+          right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            value: 1,
+            left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+              value: 0,
+              left: nil,
+              right: nil
+            },
+            right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+              value: 3,
+              left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                value: 1,
+                left: nil,
+                right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                  value: 2,
+                  left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                    value: 1,
+                    left: nil,
+                    right: nil
+                  },
+                  right: nil
+                }
+              },
+              right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                value: 2,
+                left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                  value: 1,
+                  left: nil,
+                  right: nil
+                },
+                right: nil
+              }
+            }
+          }
+        },
+        tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          value: 2,
+          left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            value: 1,
+            left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+              value: 0,
+              left: nil,
+              right: nil
+            },
+            right: nil
+          },
+          right: nil
+        },
+        length: 4
+      }
   """
   @spec prepend(list :: t(), any()) :: t()
   def prepend(%__MODULE__{head: nil, tail: nil, length: length}, value) do
@@ -257,18 +267,30 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
 
   Tail is updated if the last item is removed.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
-    iex> DLL.new(1) |> DLL.append(2) |> DLL.insert(1, 3) |> DLL.prepend(0) |> DLL.delete(1)
-    %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
-      head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-        value: 0,
-        left: nil,
-        right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-          value: 3,
-          left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-            value: 1,
-            left: nil,
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
+
+      iex> DLL.new(1) |> DLL.append(2) |> DLL.insert(1, 3) |> DLL.prepend(0) |> DLL.delete(1)
+      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
+        head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          value: 0,
+          left: nil,
+          right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            value: 3,
+            left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+              value: 1,
+              left: nil,
+              right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                value: 2,
+                left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                  value: 1,
+                  left: nil,
+                  right: nil
+                },
+                right: nil
+              }
+            },
             right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
               value: 2,
               left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
@@ -278,33 +300,23 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
               },
               right: nil
             }
-          },
-          right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-            value: 2,
+          }
+        },
+        tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          value: 2,
+          left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            value: 1,
             left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-              value: 1,
+              value: 0,
               left: nil,
               right: nil
             },
             right: nil
-          }
-        }
-      },
-      tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-        value: 2,
-        left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-          value: 1,
-          left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
-            value: 0,
-            left: nil,
-            right: nil
           },
           right: nil
         },
-        right: nil
-      },
-      length: 3
-    }
+        length: 3
+      }
   """
   @spec delete(t(), integer()) :: t()
   def delete(%__MODULE__{length: length} = list, index) when index >= length, do: list

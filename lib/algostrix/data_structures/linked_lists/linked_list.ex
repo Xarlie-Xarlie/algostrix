@@ -15,23 +15,32 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
         }
 
   @doc """
-  Create a new Linked List.
+  Create an empty Linked List.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
-    iex> LinkedList.new()
-    %LinkedList{head: nil, tail: nil, length: 0}
+  ## Examples:
 
-    iex> LinkedList.new(1)
-    %LinkedList{
-      head: %LinkedListNode{value: 1, next: nil},
-      tail: %LinkedListNode{value: 1, next: nil},
-      length: 1
-    }
+      iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
+
+      iex> LinkedList.new()
+      %LinkedList{head: nil, tail: nil, length: 0}
   """
   @spec new() :: t()
   def new, do: %__MODULE__{head: nil, tail: nil, length: 0}
 
+  @doc """
+  Create a new Linked List.
+
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
+
+      iex> LinkedList.new(1)
+      %LinkedList{
+        head: %LinkedListNode{value: 1, next: nil},
+        tail: %LinkedListNode{value: 1, next: nil},
+        length: 1
+      }
+  """
   @spec new(any()) :: t()
   def new(value) do
     node = LinkedListNode.new(value)
@@ -41,38 +50,42 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
   @doc """
   Append an item at the end of a Linked List.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
-    iex> l = LinkedList.new()
-    %LinkedList{head: nil, tail: nil, length: 0}
-    iex> LinkedList.append(l, 1)
-    %LinkedList{
-      head: %LinkedListNode{value: 1, next: nil},
-      tail: %LinkedListNode{value: 1, next: nil},
-      length: 1
-    }
+  ## Examples:
 
-    iex> l = LinkedList.new(1)
-    %LinkedList{
-      head: %LinkedListNode{value: 1, next: nil},
-      tail: %LinkedListNode{value: 1, next: nil},
-      length: 1
-    }
-    iex> LinkedListNode.append(l, 2)
-    %LinkedList{
-      head: %LinkedListNode{
-        value: 1,
-        next: %LinkedListNode{
+      iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
+
+      iex> l = LinkedList.new()
+      %LinkedList{head: nil, tail: nil, length: 0}
+
+      iex> LinkedList.append(l, 1)
+      %LinkedList{
+        head: %LinkedListNode{value: 1, next: nil},
+        tail: %LinkedListNode{value: 1, next: nil},
+        length: 1
+      }
+
+      iex> l = LinkedList.new(1)
+      %LinkedList{
+        head: %LinkedListNode{value: 1, next: nil},
+        tail: %LinkedListNode{value: 1, next: nil},
+        length: 1
+      }
+
+      iex> LinkedListNode.append(l, 2)
+      %LinkedList{
+        head: %LinkedListNode{
+          value: 1,
+          next: %LinkedListNode{
+            value: 2,
+            next: nil
+          }
+        },
+        tail: %LinkedListNode{
           value: 2,
           next: nil
-        }
-      },
-      tail: %LinkedListNode{
-        value: 2,
-        next: nil
-      },
-      length: 2
-    }
+        },
+        length: 2
+      }
   """
   @spec append(t(), any()) :: t()
   def append(%__MODULE__{head: nil, tail: nil, length: length}, value) do
@@ -91,40 +104,43 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
 
   Tail is automatically updated if needed.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
-    iex> l = %LinkedList{
-      head: %LinkedListNode{
-        value: 1,
-        next: %LinkedListNode{
-          value: 2,
-          next: nil
-        }
-      },
-      tail: %LinkedListNode{
-        value: 2,
-        next: nil
-      },
-      length: 2
-    }
-    iex> LinkedList.insert(l, 1, 3)
-    %LinkedList{
-      head: %LinkedListNode{
-        value: 1,
-        next: %LinkedListNode{
-          value: 3,
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
+
+      iex> l = %LinkedList{
+        head: %LinkedListNode{
+          value: 1,
           next: %LinkedListNode{
             value: 2,
             next: nil
           }
-        }
-      },
-      tail: %LinkedListNode{
-        value: 2,
-        next: nil
-      },
-      length: 3
-    }
+        },
+        tail: %LinkedListNode{
+          value: 2,
+          next: nil
+        },
+        length: 2
+      }
+
+      iex> LinkedList.insert(l, 1, 3)
+      %LinkedList{
+        head: %LinkedListNode{
+          value: 1,
+          next: %LinkedListNode{
+            value: 3,
+            next: %LinkedListNode{
+              value: 2,
+              next: nil
+            }
+          }
+        },
+        tail: %LinkedListNode{
+          value: 2,
+          next: nil
+        },
+        length: 3
+      }
   """
   @spec insert(list :: t(), index :: integer(), value :: any()) :: t()
   def insert(list, 0, value) do
@@ -143,30 +159,12 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
   Pre append an item at the beggining of the Linked List.
   In others words, add a new item at position 0 of List.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
-    iex> l = %LinkedList{
-      head: %LinkedListNode{
-        value: 1,
-        next: %LinkedListNode{
-          value: 3,
-          next: %LinkedListNode{
-            value: 2,
-            next: nil
-          }
-        }
-      },
-      tail: %LinkedListNode{
-        value: 2,
-        next: nil
-      },
-      length: 3
-    }
-    iex> LinkedList.prepend(0)
-    %LinkedList{
-      head: %LinkedListNode{
-        value: 0,
-        next: %LinkedListNode{
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
+
+      iex> l = %LinkedList{
+        head: %LinkedListNode{
           value: 1,
           next: %LinkedListNode{
             value: 3,
@@ -175,14 +173,35 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
               next: nil
             }
           }
-        }
-      },
-      tail: %LinkedListNode{
-        value: 2,
-        next: nil
-      },
-      length: 4
-    }
+        },
+        tail: %LinkedListNode{
+          value: 2,
+          next: nil
+        },
+        length: 3
+      }
+
+      iex> LinkedList.prepend(0)
+      %LinkedList{
+        head: %LinkedListNode{
+          value: 0,
+          next: %LinkedListNode{
+            value: 1,
+            next: %LinkedListNode{
+              value: 3,
+              next: %LinkedListNode{
+                value: 2,
+                next: nil
+              }
+            }
+          }
+        },
+        tail: %LinkedListNode{
+          value: 2,
+          next: nil
+        },
+        length: 4
+      }
   """
   @spec prepend(list :: t(), any()) :: t()
   def prepend(%__MODULE__{head: nil, tail: nil, length: length}, value) do
@@ -197,30 +216,33 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
   @doc """
   Converts a Linked List to List.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
-    iex> l = %LinkedList{
-      head: %LinkedListNode{
-        value: 0,
-        next: %LinkedListNode{
-          value: 1,
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
+
+      iex> l = %LinkedList{
+        head: %LinkedListNode{
+          value: 0,
           next: %LinkedListNode{
-            value: 3,
+            value: 1,
             next: %LinkedListNode{
-              value: 2,
-              next: nil
+              value: 3,
+              next: %LinkedListNode{
+                value: 2,
+                next: nil
+              }
             }
           }
-        }
-      },
-      tail: %LinkedListNode{
-        value: 2,
-        next: nil
-      },
-      length: 4
-    }
-    iex> LinkedList.to_list(l)
-    [0, 1, 3, 2]
+        },
+        tail: %LinkedListNode{
+          value: 2,
+          next: nil
+        },
+        length: 4
+      }
+
+      iex> LinkedList.to_list(l)
+      [0, 1, 3, 2]
   """
   @spec to_list(t()) :: [any()] | []
   def to_list(%__MODULE__{head: nil}), do: []
@@ -238,13 +260,35 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
 
   Tail is updated if the last item is removed.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
-    iex> l = %LinkedList{
-      head: %LinkedListNode{
-        value: 0,
-        next: %LinkedListNode{
-          value: 1,
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.LinkedLists.LinkedList
+
+      iex> l = %LinkedList{
+        head: %LinkedListNode{
+          value: 0,
+          next: %LinkedListNode{
+            value: 1,
+            next: %LinkedListNode{
+              value: 3,
+              next: %LinkedListNode{
+                value: 2,
+                next: nil
+              }
+            }
+          }
+        },
+        tail: %LinkedListNode{
+          value: 2,
+          next: nil
+        },
+        length: 4
+      }
+
+      iex> LinkedList.delete(l, 1)
+      %LinkedList{
+        head: %LinkedListNode{
+          value: 0,
           next: %LinkedListNode{
             value: 3,
             next: %LinkedListNode{
@@ -252,32 +296,13 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
               next: nil
             }
           }
-        }
-      },
-      tail: %LinkedListNode{
-        value: 2,
-        next: nil
-      },
-      length: 4
-    }
-    iex> LinkedList.delete(l, 1)
-    %LinkedList{
-      head: %LinkedListNode{
-        value: 0,
-        next: %LinkedListNode{
-          value: 3,
-          next: %LinkedListNode{
-            value: 2,
-            next: nil
-          }
-        }
-      },
-      tail: %LinkedListNode{
-        value: 2,
-        next: nil
-      },
-      length: 3
-    }
+        },
+        tail: %LinkedListNode{
+          value: 2,
+          next: nil
+        },
+        length: 3
+      }
   """
   @spec delete(t(), integer()) :: t()
   def delete(%__MODULE__{length: length} = list, index) when index >= length, do: list
@@ -294,37 +319,39 @@ defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
   @doc """
   Reverse a Linked List.
 
-  Ex:
-    iex> alias Algostrix.DataStructures.LinkedLists.LinkedList, as: LL
-    iex> LL.new() |> LL.reverse()
-    %Algostrix.DataStructures.LinkedLists.LinkedList{
-      head: nil,
-      tail: nil,
-      length: 0
-    }
+  ## Examples:
 
-    iex> alias Algostrix.DataStructures.LinkedLists.LinkedList, as: LL
-    iex> LL.new() |> LL.append(0) |> LL.append(1) |> LL.append(2) |> LL.append(3) |> LL.reverse()
-    %Algostrix.DataStructures.LinkedLists.LinkedList{
-      head: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
-        value: 3,
-        next: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
-          value: 2,
+      iex> alias Algostrix.DataStructures.LinkedLists.LinkedList, as: LL
+
+      iex> LL.new() |> LL.reverse()
+      %Algostrix.DataStructures.LinkedLists.LinkedList{
+        head: nil,
+        tail: nil,
+        length: 0
+      }
+
+      iex> alias Algostrix.DataStructures.LinkedLists.LinkedList, as: LL
+      iex> LL.new() |> LL.append(0) |> LL.append(1) |> LL.append(2) |> LL.append(3) |> LL.reverse()
+      %Algostrix.DataStructures.LinkedLists.LinkedList{
+        head: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
+          value: 3,
           next: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
-            value: 1,
+            value: 2,
             next: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
-              value: 0,
-              next: nil
+              value: 1,
+              next: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
+                value: 0,
+                next: nil
+              }
             }
           }
-        }
-      },
-      tail: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
-        value: 0,
-        next: nil
-      },
-      length: 4
-    }
+        },
+        tail: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
+          value: 0,
+          next: nil
+        },
+        length: 4
+      }
   """
   @spec reverse(t()) :: t()
   def reverse(%__MODULE__{head: nil, tail: nil}) do
