@@ -262,6 +262,119 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
   end
 
   @doc """
+  Convert a Binary Search Tree into a list.
+
+  In Order Traversal.
+
+  The elements are added using the fast
+  list insertion. Which need an Enum.reverse/1
+  at the end of the function.
+
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST 
+
+      iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
+
+      iex> BST.to_list_in_order(tree)
+      [1, 5, 8, 9, 10, 17, 19, 20, 28, 29, 34]
+  """
+  @spec to_list_in_order(t()) :: [any()]
+  def to_list_in_order(%__MODULE__{root: nil}), do: []
+
+  def to_list_in_order(%__MODULE__{root: %BTN{right: right, left: left, value: value}}) do
+    acc_list_in_order([], left)
+    |> then(&[value | &1])
+    |> then(&acc_list_in_order(&1, right))
+    |> Enum.reverse()
+  end
+
+  @doc """
+  Convert a Binary Search Tree into a list.
+
+  Pre Order Traversal.
+
+  The elements are added using the fast
+  list insertion. Which need an Enum.reverse/1
+  at the end of the function.
+
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST 
+
+      iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
+      %AlgoStrix.DataStructures.Trees.BinarySearchTree{...}
+
+      iex> BST.to_list_pre_order(tree)
+      [17, 10, 5, 1, 8, 9, 28, 20, 19, 29, 34]
+  """
+  @spec to_list_pre_order(t()) :: [any()]
+  def to_list_pre_order(%__MODULE__{root: nil}), do: []
+
+  def to_list_pre_order(%__MODULE__{root: %BTN{right: right, left: left, value: value}}) do
+    [value]
+    |> acc_list_pre_order(left)
+    |> acc_list_pre_order(right)
+    |> Enum.reverse()
+  end
+
+  @doc """
+  Convert a Binary Search Tree into a list.
+
+  Post Order traversal.
+
+  The elements are added using the fast
+  list insertion. Which need an Enum.reverse/1
+  at the end of the function.
+
+  ## Examples:
+
+      iex> alias AlgoStrix.DataStructures.Trees.BinarySearchTree, as: BST 
+
+      iex> tree = Enum.reduce([17, 10, 28, 29, 20, 34, 5, 1, 8, 19, 9], BST.new(), &BST.insert(&2, &1))
+      %AlgoStrix.DataStructures.Trees.BinarySearchTree{...}
+
+      iex> BST.to_list_pos_order(tree)
+      [1, 9, 8, 5, 10, 19, 20, 34, 29, 28, 17]
+  """
+  @spec to_list_pos_order(t()) :: [any()]
+  def to_list_pos_order(%__MODULE__{root: nil}), do: []
+
+  def to_list_pos_order(%__MODULE__{root: %BTN{right: right, left: left, value: value}}) do
+    acc_list_pos_order([], left)
+    |> acc_list_pos_order(right)
+    |> then(&[value | &1])
+    |> Enum.reverse()
+  end
+
+  @spec acc_list_in_order([any()], nil | BTN.t()) :: [any()]
+  defp acc_list_in_order(acc, nil), do: acc
+
+  defp acc_list_in_order(acc, %BTN{left: left, right: right, value: value}) do
+    acc_list_in_order(acc, left)
+    |> then(&[value | &1])
+    |> then(&acc_list_in_order(&1, right))
+  end
+
+  @spec acc_list_pre_order([any()], nil | BTN.t()) :: [any()]
+  defp acc_list_pre_order(acc, nil), do: acc
+
+  defp acc_list_pre_order(acc, %BTN{left: left, right: right, value: value}) do
+    [value | acc]
+    |> acc_list_pre_order(left)
+    |> acc_list_pre_order(right)
+  end
+
+  @spec acc_list_pos_order([any()], nil | BTN.t()) :: [any()]
+  defp acc_list_pos_order(acc, nil), do: acc
+
+  defp acc_list_pos_order(acc, %BTN{left: left, right: right, value: value}) do
+    acc_list_pos_order(acc, left)
+    |> acc_list_pos_order(right)
+    |> then(&[value | &1])
+  end
+
+  @doc """
   Traverse the entire tree In Pre Order.
 
   Ex:
