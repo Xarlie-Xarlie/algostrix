@@ -1,10 +1,39 @@
 defmodule Algostrix.DataStructures.LinkedLists.LinkedList do
   @moduledoc """
-  Linked List using Nodes.
+  Linked List.
 
-  has Head, Tail and Lenght.
+  It contains the most common functions of a Linked List.
+
+  %Algostrix.DataStructures.LinkedLists.LinkedList{
+    head: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
+      value: 1, next: nil
+    },
+  tail: %Algostrix.DataStructures.LinkedLists.LinkedListNode{
+    value: 1, next: nil
+  },
+    length: 1
+  }
+
+  Linked lists are basic data structures that consist of nodes
+  where each node contains a value and a reference to the next node in the sequence.
+  They are useful for dynamic data storage.
+
+  Operations and Time Complexity:
+  - Insert at the Beginning (prepend): O(1)
+  - Insert at the End (append): O(1)
+  - Delete at the Beginning: O(1)
+  - Delete at the End: O(n) [if tail pointer not maintained]
+  - Search: O(n)
+  - Length: O(1)
+
+  ASCII Representation:
+
+    - (value, pointer) structure
+
+    +-----------+   +------------+   +------------+
+    | 1234 | n1-|-->| 5678 | n2 -|-->| 9101 | nil |
+    +------+----+   +------------+   +------------+
   """
-
   alias Algostrix.DataStructures.LinkedLists.LinkedListNode
   defstruct head: nil, tail: nil, length: 0
 

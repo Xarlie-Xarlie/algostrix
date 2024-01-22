@@ -5,9 +5,19 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithList do
   This approach is simple and is efficient, because
   under the hood, elixir lists are linked lists.
 
-  %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+  %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
     items: [1, 2, 3, 4, 5]
   }
+
+  ASCII Representation:
+
+    +------+                  +------+
+    |  12  | (top)            |  11  | (top)
+    +------+           (pop)  +------+
+    |  11  |           ---->   |  10  | (bottom)
+    +------+                  +------+
+    |  10  | (bottom)
+    +------+
   """
   defstruct items: []
 

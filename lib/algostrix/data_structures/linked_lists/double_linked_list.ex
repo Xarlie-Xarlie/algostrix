@@ -2,23 +2,34 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
   @moduledoc """
   Double Linked List using Nodes.
 
-  has Head, Tail and Lenght.
+  Has Head, Tail, and Length.
 
-  Althoght this module implements the most basic functions of
-  Double Linked Lists, it still is difficult to use/understand
-  in comparison to imperetive languanges.
+  Although this module implements the most basic functions of Double Linked Lists,
+  it can be challenging to use/understand in comparison to imperative languages.
 
-  If you really need a DLL implementation you should search
-  for a library or use a GenServer to keep all nodes.
+  If you require a DLL implementation, consider searching for a library or using
+  a GenServer to manage all nodes. With this approach, each node can have an index or
+  ID in the GenServer. For Left/Right linking, you could use that index/ID,
+  allowing traversal forward/backward as needed by consulting the node in the GenServer.
 
-  With this approach you can have an index or id to each node
-  in that GenServer. And for Left/Right linking, you could
-  use that index/id, so you could traverse forward/backwards
-  as many steps you needed. By consulting the node in the
-  GenServer.
+  One potential library can be found at: https://github.com/stocks29/dlist
 
-  One potencial library could be find at:
-  https://github.com/stocks29/dlist
+  ## Time Complexity for Operations:
+  - Create a new Double Linked List: O(1)
+  - Append an item at the end: O(1)
+  - Prepend an item at the beginning: O(1)
+  - Insert an item at a specified index: O(n)
+  - Delete an item at a specified index: O(n)
+
+  head -> [value1] <-> [value2] <-> ... <-> [valueN] <- tail
+
+  ASCII Representation:
+
+    - (pointer, value, pointer) structure
+
+    +-----------------+      +----------------+     +-----------------+
+    | nil | 1234 | n1 | <--> | n0 | 5678 | n2 | <-> | n1 | 9101 | nil |
+    +-----------------+      +----------------+     +-----------------+
   """
 
   alias AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode

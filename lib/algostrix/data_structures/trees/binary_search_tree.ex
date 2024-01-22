@@ -2,7 +2,7 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
   @moduledoc """
   Binary Search Tree.
 
-  It contains the most commum functions of an Binary Search Tree.
+  It contains the most commom functions of a Binary Search Tree.
 
   %AlgoStrix.DataStructures.Trees.BinarySearchTree{
     root: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
@@ -19,6 +19,24 @@ defmodule AlgoStrix.DataStructures.Trees.BinarySearchTree do
       value: 2
     }
   }
+
+  Trees are special because they can perform O(log n) operations.
+  It means that you do not need to traverse all nodes during
+  search/insert/delete.
+
+  For each steps you are diving the path by half of the
+  possibilities. Unless you have a unbalanced tree.
+
+  But in that cases you still have some algorithms to balance
+  a binary tree.
+
+  ASCII Representation:
+
+        7
+       / \
+      5   3
+     /|   |\
+    6 4   2 1
   """
 
   alias AlgoStrix.DataStructures.Trees.BinaryTreeNode, as: BTN

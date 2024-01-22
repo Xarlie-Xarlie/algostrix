@@ -5,6 +5,18 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithList do
   First In First Out.
 
   %AlgoStrix.DataStructures.Queues.QueueWithList{items: ["my value"]}
+
+  ## Time Complexity for Operations:
+    - Enqueue (Add to the end): O(1)
+    - Dequeue (Remove from the front): O(1)
+    - Lenght of the queue: O(1)
+    - Traverse: O(n)
+
+  ASCII Representation:
+
+    +------+------+------+  (dequeue)  +------+------+
+    | 1234 | 5678 | 9101 |  -------->  | 5678 | 9101 |
+    +------+------+------+             +------+------+
   """
   defstruct items: []
 

@@ -1,9 +1,16 @@
-defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
+defmodule AlgoStrix.DataStructures.Stacks.StacksWithLinkedList do
   @moduledoc """
   Implementation of a Stack using Linked Lists.
 
+  This module provides a basic implementation of a stack data structure using linked lists.
+
+  ## Time Complexity:
+  - Insert (Push): O(1)
+  - Search: O(n)
+  - Pop: O(1)
+
   Ex:
-  %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+  %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
     top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
       value: "asdf",
       next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
@@ -17,6 +24,16 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
     },
     length: 2
   }
+
+  ASCII Representation:
+
+    +------+                  +------+
+    | 1234 | (top)            | 3456 | (top)
+    +------+           (pop)  +------+
+    | 3456 |           ---->  | 8910 | (bottom)
+    +------+                  +------+
+    | 8910 | (bottom)
+    +------+
   """
   defstruct top: nil, bottom: nil, length: 0
 
@@ -29,10 +46,10 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
 
       iex> SLL.new()
-      %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+      %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
         top: nil,
         bottom: nil,
         length: 0
@@ -46,10 +63,10 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
 
       iex> SLL.new("my value")
-      %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+      %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
         top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
           value: "my value",
           next: nil
@@ -72,10 +89,10 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
 
       iex> SLL.new() |> SLL.push("my value")
-      %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+      %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
         top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
           value: "my value",
           next: nil
@@ -88,7 +105,7 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
       }
 
       iex> SLL.new() |> SLL.push("my value") |> SLL.push("asdf")
-      %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+      %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
         top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
           value: "asdf",
           next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
@@ -118,11 +135,11 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
 
       iex> SLL.new(1) |> SLL.push(2) |> SLL.push(3) |> SLL.pop()
       {3,
-       %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+       %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
          top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
            value: 2,
            next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
@@ -139,7 +156,7 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
 
       iex> SLL.new(1) |> SLL.pop()
       {1,
-       %AlgoStrix.DataStructures.Stacks.StacksWithLikedList{
+       %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
          top: nil,
          bottom: nil,
          length: 0
@@ -163,12 +180,12 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLikedList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
 
       iex> SLL.new(1) |> SLL.push(2) |> SLL.push(3) |> SLL.peek()
       3
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLikedList, as: SLL
+      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
       iex> SLL.new() |> SLL.peek()
       nil
   """

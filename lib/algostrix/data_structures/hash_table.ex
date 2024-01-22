@@ -7,7 +7,7 @@ defmodule AlgoStrix.HashTable do
   It deals with hash colisions.
 
   Hash Table operations and complexity:
-    - loolup: O(1)
+    - lookup: O(1)
     - push: O(1)
     - insert: O(1)
     - delete: O(1)

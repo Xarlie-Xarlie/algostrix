@@ -2,7 +2,7 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
   @moduledoc """
   Implementation of a Queue using Linked Lists.
 
-  %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+  %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
     first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
       value: "asdf",
       next: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
@@ -16,6 +16,18 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
     },
     length: 2
   }
+
+  ## Time Complexity for Operations:
+    - Enqueue (Add to the end): O(1)
+    - Dequeue (Remove from the front): O(1)
+    - Lenght of the queue: O(1)
+    - Traverse: O(n)
+
+  ASCII Representation:
+
+    +------+------+------+  (dequeue)  +------+------+
+    | 1234 | 5678 | 9101 |  -------->  | 5678 | 9101 |
+    +------+------+------+             +------+------+
   """
   defstruct first: nil, last: nil, length: 0
 
@@ -28,10 +40,10 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
+      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
 
       iex> QLL.new()
-      %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+      %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
         first: nil,
         last: nil,
         length: 0
@@ -45,10 +57,10 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
+      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
 
       iex> QLL.new("my value")
-      %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+      %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
         first: %AlgoStrix.DataStructures.Queue.QueueLinkedListNode{
           value: "my value",
           next: nil
@@ -71,10 +83,10 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
+      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
 
       iex> QLL.new() |> QLL.enqueue("my value")
-      %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+      %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
         first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
           value: "my value",
           next: nil
@@ -87,7 +99,7 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
       }
 
       iex> QLL.new() |> QLL.enqueue("my value") |> QLL.enqueue("asdf")
-      %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+      %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
         first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
           value: "my value",
           next: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
@@ -118,11 +130,11 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
+      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
 
       iex> QLL.new(1) |> QLL.enqueue(2) |> QLL.enqueue(3) |> QLL.dequeue()
       {3,
-       %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+       %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
          first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
            value: 2,
            next: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
@@ -139,7 +151,7 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
       iex> QLL.new(1) |> QLL.dequeue()
       {1,
-       %AlgoStrix.DataStructures.Queues.QueueWithLikedList{
+       %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
          first: nil,
          last: nil,
          length: 0
@@ -163,7 +175,7 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLikedList, as: QLL
+      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
 
       iex> QLL.new(1) |> QLL.enqueue(2) |> QLL.enqueue(3) |> QLL.peek()
       3
