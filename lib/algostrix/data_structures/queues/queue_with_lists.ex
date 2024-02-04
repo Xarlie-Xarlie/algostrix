@@ -1,10 +1,10 @@
-defmodule AlgoStrix.DataStructures.Queues.QueueWithList do
+defmodule Algostrix.DataStructures.Queues.QueueWithList do
   @moduledoc """
   Queue implementation using Lists.
 
   First In First Out.
 
-  %AlgoStrix.DataStructures.Queues.QueueWithList{items: ["my value"]}
+  %Algostrix.DataStructures.Queues.QueueWithList{items: ["my value"]}
 
   ## Time Complexity for Operations:
     - Enqueue (Add to the end): O(1)
@@ -27,10 +27,10 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithList, as: QL
+      iex> alias Algostrix.DataStructures.Queues.QueueWithList, as: QL
 
       iex> QL.new()
-      %AlgoStrix.DataStructures.Queues.QueueWithList{items: []}
+      %Algostrix.DataStructures.Queues.QueueWithList{items: []}
   """
   @spec new() :: t()
   def new, do: %__MODULE__{}
@@ -40,10 +40,10 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithList, as: QL
+      iex> alias Algostrix.DataStructures.Queues.QueueWithList, as: QL
 
       iex> QL.new("my value")
-      %AlgoStrix.DataStructures.Queues.QueueWithList{items: ["my value"]}
+      %Algostrix.DataStructures.Queues.QueueWithList{items: ["my value"]}
   """
   @spec new(value :: any()) :: t()
   def new(value), do: %__MODULE__{items: [value]}
@@ -53,10 +53,10 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithList, as: QL
+      iex> alias Algostrix.DataStructures.Queues.QueueWithList, as: QL
 
       iex> QL.new() |> QL.enqueue(1)
-      %AlgoStrix.DataStructures.Queues.QueueWithList{items: [1]}
+      %Algostrix.DataStructures.Queues.QueueWithList{items: [1]}
   """
   @spec enqueue(queue :: t(), value :: any()) :: t()
   def enqueue(%__MODULE__{items: items}, value) do
@@ -68,10 +68,10 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithList, as: QL
+      iex> alias Algostrix.DataStructures.Queues.QueueWithList, as: QL
 
       iex> QL.new() |> QL.enqueue(1) |> QL.dequeue()
-      {1, %AlgoStrix.DataStructures.Queues.QueueWithList{items: []}}
+      {1, %Algostrix.DataStructures.Queues.QueueWithList{items: []}}
   """
   @spec dequeue(queue :: t()) :: {nil | any(), t()}
   def dequeue(%__MODULE__{items: items}) do
@@ -88,7 +88,7 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithList, as: QL
+      iex> alias Algostrix.DataStructures.Queues.QueueWithList, as: QL
 
       iex> QL.new() |> QL.enqueue(1) |> QL.enqueue(2) |> QL.peek()
       1

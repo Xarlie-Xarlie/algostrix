@@ -1,4 +1,4 @@
-defmodule AlgoStrix.HashTable do
+defmodule Algostrix.HashTable do
   @moduledoc """
   Hash Tables are one of the most commom data structes.
 

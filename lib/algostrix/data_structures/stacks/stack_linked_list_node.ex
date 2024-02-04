@@ -1,10 +1,10 @@
-defmodule AlgoStrix.DataStructures.Stacks.StackLinkedListNode do
+defmodule Algostrix.DataStructures.Stacks.StackLinkedListNode do
   @moduledoc """
   Node for implementing a Stack using Linked lists.
 
-  %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+  %Algostrix.DataStructures.Stacks.StackLinkedListNode{
     value: 1,
-    next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+    next: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
       value: 20,
       next: nil
     }
@@ -19,10 +19,10 @@ defmodule AlgoStrix.DataStructures.Stacks.StackLinkedListNode do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
+      iex> alias Algostrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
 
       iex> SLLN.new()
-      %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{value: nil, next:  nil}
+      %Algostrix.DataStructures.Stacks.StackLinkedListNode{value: nil, next:  nil}
   """
   @spec new() :: t()
   def new, do: %__MODULE__{value: nil, next: nil}
@@ -32,10 +32,10 @@ defmodule AlgoStrix.DataStructures.Stacks.StackLinkedListNode do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
+      iex> alias Algostrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
 
       iex> SLLN.new(1)
-      %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{value: 1, next:  nil}
+      %Algostrix.DataStructures.Stacks.StackLinkedListNode{value: 1, next:  nil}
   """
   @spec new(value :: any()) :: t()
   def new(value), do: %__MODULE__{value: value, next: nil}
@@ -45,15 +45,15 @@ defmodule AlgoStrix.DataStructures.Stacks.StackLinkedListNode do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
+      iex> alias Algostrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
 
       iex> SLLN.new(1, nil)
-      %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{value: 1, next:  nil}
+      %Algostrix.DataStructures.Stacks.StackLinkedListNode{value: 1, next:  nil}
 
       iex> SLLN.new(1, SLLN.new(2))
-      %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+      %Algostrix.DataStructures.Stacks.StackLinkedListNode{
         value: 1,
-        next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+        next: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
           value: 2,
           next: nil
         }
@@ -70,18 +70,18 @@ defmodule AlgoStrix.DataStructures.Stacks.StackLinkedListNode do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
+      iex> alias Algostrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
 
       iex> n1 = SLLN.new(1)
-      %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{value: 1, next:  nil}
+      %Algostrix.DataStructures.Stacks.StackLinkedListNode{value: 1, next:  nil}
 
       iex> n2 = LinkedListNode.new(2)
-      %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{value: 2, next:  nil}
+      %Algostrix.DataStructures.Stacks.StackLinkedListNode{value: 2, next:  nil}
 
       iex> SLLN.put_next(n1, n2)
-      %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+      %Algostrix.DataStructures.Stacks.StackLinkedListNode{
         value: 1,
-        next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+        next: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
           value: 20,
           next: nil
         }

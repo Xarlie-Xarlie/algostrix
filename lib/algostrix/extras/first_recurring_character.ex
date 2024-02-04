@@ -1,4 +1,4 @@
-defmodule AlgoStrix.FirstRecurringCharacter do
+defmodule Algostrix.FirstRecurringCharacter do
   @moduledoc """
   Find the first ocorrency of an element inside a list.
   """
@@ -10,12 +10,12 @@ defmodule AlgoStrix.FirstRecurringCharacter do
 
       iex> list = [1, 2, 3, 2, 5]
 
-      iex> AlgoStrix.FirstRecurringCharacter.check(list)
+      iex> Algostrix.FirstRecurringCharacter.check(list)
       2
 
       iex> list = [1, 2, 5, 5, 2, 3]
 
-      iex> AlgoStrix.FirstRecurringCharacter.check(list)
+      iex> Algostrix.FirstRecurringCharacter.check(list)
       5
   """
   @spec first_recurring_character([term()]) :: term() | nil

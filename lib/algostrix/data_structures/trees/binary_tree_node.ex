@@ -1,9 +1,9 @@
-defmodule AlgoStrix.DataStructures.Trees.BinaryTreeNode do
+defmodule Algostrix.DataStructures.Trees.BinaryTreeNode do
   @moduledoc """
   Binary Tree Node to built a new Tree.
 
-  %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
-    right: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+  %Algostrix.DataStructures.Trees.BinaryTreeNode{
+    right: %Algostrix.DataStructures.Trees.BinaryTreeNode{
       left: nil,
       right: nil,
       value: 2
@@ -22,10 +22,10 @@ defmodule AlgoStrix.DataStructures.Trees.BinaryTreeNode do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Trees.BinaryTreeNode, as: BTN
+      iex> alias Algostrix.DataStructures.Trees.BinaryTreeNode, as: BTN
 
       iex> BTN.new()
-      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      %Algostrix.DataStructures.Trees.BinaryTreeNode{
         left: nil,
         right: nil,
         value: nil
@@ -39,10 +39,10 @@ defmodule AlgoStrix.DataStructures.Trees.BinaryTreeNode do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Trees.BinaryTreeNode, as: BTN
+      iex> alias Algostrix.DataStructures.Trees.BinaryTreeNode, as: BTN
 
       iex> BTN.new(1)
-      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      %Algostrix.DataStructures.Trees.BinaryTreeNode{
         left: nil,
         right: nil,
         value: 1
@@ -56,30 +56,30 @@ defmodule AlgoStrix.DataStructures.Trees.BinaryTreeNode do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Trees.BinaryTreeNode, as: BTN
+      iex> alias Algostrix.DataStructures.Trees.BinaryTreeNode, as: BTN
 
       iex> n1 = BTN.new(1)
-      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      %Algostrix.DataStructures.Trees.BinaryTreeNode{
         left: nil,
         right: nil,
         value: 1
       }
 
       iex> n2 = BTN.new(2)
-      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      %Algostrix.DataStructures.Trees.BinaryTreeNode{
         left: nil,
         right: nil,
         value: 2
       }
 
       iex> BTN.new(3, n1, n2)
-      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
-        left: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      %Algostrix.DataStructures.Trees.BinaryTreeNode{
+        left: %Algostrix.DataStructures.Trees.BinaryTreeNode{
           left: nil,
           right: nil,
           value: 1
         },
-        right: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+        right: %Algostrix.DataStructures.Trees.BinaryTreeNode{
           left: nil,
           right: nil,
           value: 2
@@ -95,25 +95,25 @@ defmodule AlgoStrix.DataStructures.Trees.BinaryTreeNode do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Trees.BinaryTreeNode, as: BTN
+      iex> alias Algostrix.DataStructures.Trees.BinaryTreeNode, as: BTN
 
       iex> n1 = BTN.new(1)
-      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      %Algostrix.DataStructures.Trees.BinaryTreeNode{
         left: nil,
         right: nil,
         value: 1
       }
 
       iex> n2 = BTN.new(2)
-      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      %Algostrix.DataStructures.Trees.BinaryTreeNode{
         left: nil,
         right: nil,
         value: 2
       }
 
       iex> BTN.put_right(n1, n2)
-      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
-        right: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      %Algostrix.DataStructures.Trees.BinaryTreeNode{
+        right: %Algostrix.DataStructures.Trees.BinaryTreeNode{
           left: nil,
           right: nil,
           value: 2
@@ -132,26 +132,26 @@ defmodule AlgoStrix.DataStructures.Trees.BinaryTreeNode do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Trees.BinaryTreeNode, as: BTN
+      iex> alias Algostrix.DataStructures.Trees.BinaryTreeNode, as: BTN
 
       iex> n1 = BTN.new(1)
-      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      %Algostrix.DataStructures.Trees.BinaryTreeNode{
         left: nil,
         right: nil,
         value: 1
       }
 
       iex> n2 = BTN.new(2)
-      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      %Algostrix.DataStructures.Trees.BinaryTreeNode{
         left: nil,
         right: nil,
         value: 2
       }
 
       iex> BTN.put_left(n1, n2)
-      %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+      %Algostrix.DataStructures.Trees.BinaryTreeNode{
         right: nil,
-        left: %AlgoStrix.DataStructures.Trees.BinaryTreeNode{
+        left: %Algostrix.DataStructures.Trees.BinaryTreeNode{
           left: nil,
           right: nil,
           value: 2

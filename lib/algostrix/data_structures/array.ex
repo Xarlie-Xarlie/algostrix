@@ -1,4 +1,4 @@
-defmodule AlgoStrix.Array do
+defmodule Algostrix.Array do
   @moduledoc """
   Array is one of the most commom data structes.
 
@@ -36,10 +36,10 @@ defmodule AlgoStrix.Array do
 
   ## Examples:
 
-      iex> AlgoStrix.Array.get(%AlgoStrix.Array{length: 1, data: %{"0" => 0}}, 0)
+      iex> Algostrix.Array.get(%Algostrix.Array{length: 1, data: %{"0" => 0}}, 0)
       0
 
-      iex> AlgoStrix.Array.get(%AlgoStrix.Array{length: 1, data: %{"0" => 0}}, 1)
+      iex> Algostrix.Array.get(%Algostrix.Array{length: 1, data: %{"0" => 0}}, 1)
       nil
   """
   @spec get(t(), integer()) :: any() | nil
@@ -54,11 +54,11 @@ defmodule AlgoStrix.Array do
 
   ## Examples:
 
-      iex> AlgoStrix.Array.push(%AlgoStrix.Array{length: 0, data: %{}}, 0)
-      %AlgoStrix.Array{length: 1, data: %{"0" => 0}}
+      iex> Algostrix.Array.push(%Algostrix.Array{length: 0, data: %{}}, 0)
+      %Algostrix.Array{length: 1, data: %{"0" => 0}}
 
-      iex> AlgoStrix.Array.push(%AlgoStrix.Array{length: 1, data: %{"0" => 0}}, 1)
-      %AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}
+      iex> Algostrix.Array.push(%Algostrix.Array{length: 1, data: %{"0" => 0}}, 1)
+      %Algostrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}
   """
   @spec push(t(), any()) :: t()
   def push(%__MODULE__{length: length, data: data} = array, item) do
@@ -70,11 +70,11 @@ defmodule AlgoStrix.Array do
 
   ## Examples:
 
-      iex> AlgoStrix.Array.pop(%AlgoStrix.Array{length: 0, data: %{}})
-      %AlgoStrix.Array{length: 0, data: %{}}
+      iex> Algostrix.Array.pop(%Algostrix.Array{length: 0, data: %{}})
+      %Algostrix.Array{length: 0, data: %{}}
 
-      iex> AlgoStrix.Array.pop(%AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}})
-      %AlgoStrix.Array{length: 1, data: %{"0" => 0}}
+      iex> Algostrix.Array.pop(%Algostrix.Array{length: 2, data: %{"0" => 0, "1" => 1}})
+      %Algostrix.Array{length: 1, data: %{"0" => 0}}
   """
   @spec pop(t()) :: t()
   def pop(%__MODULE__{length: length, data: data} = array) when map_size(data) > 0 do
@@ -92,17 +92,17 @@ defmodule AlgoStrix.Array do
 
   ## Examples:
 
-      iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 0, data: %{}}, 0)
-      %AlgoStrix.Array{length: 0, data: %{}}
+      iex> Algostrix.Array.delete(%Algostrix.Array{length: 0, data: %{}}, 0)
+      %Algostrix.Array{length: 0, data: %{}}
 
-      iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}, 1)
-      %AlgoStrix.Array{length: 1, data: %{"0" => 0}}
+      iex> Algostrix.Array.delete(%Algostrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}, 1)
+      %Algostrix.Array{length: 1, data: %{"0" => 0}}
 
-      iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}, 0)
-      %AlgoStrix.Array{length: 1, data: %{"0" => 1}}
+      iex> Algostrix.Array.delete(%Algostrix.Array{length: 2, data: %{"0" => 0, "1" => 1}}, 0)
+      %Algostrix.Array{length: 1, data: %{"0" => 1}}
 
-      iex> AlgoStrix.Array.delete(%AlgoStrix.Array{length: 1, data: %{"0" => 1}}, 0)
-      %AlgoStrix.Array{length: 0, data: %{}}
+      iex> Algostrix.Array.delete(%Algostrix.Array{length: 1, data: %{"0" => 1}}, 0)
+      %Algostrix.Array{length: 0, data: %{}}
   """
   @spec delete(t(), integer()) :: t()
   def delete(%__MODULE__{length: length, data: data} = array, index)

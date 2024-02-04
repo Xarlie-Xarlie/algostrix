@@ -1,4 +1,4 @@
-defmodule AlgoStrix.DataStructures.Graphs.Graph do
+defmodule Algostrix.DataStructures.Graphs.Graph do
   defstruct adjacent_list: %{}, number_of_nodes: 0
 
   def new, do: %__MODULE__{}

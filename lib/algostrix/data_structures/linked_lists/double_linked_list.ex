@@ -1,4 +1,4 @@
-defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
+defmodule Algostrix.DataStructures.LinkedLists.DoubleLinkedList do
   @moduledoc """
   Double Linked List using Nodes.
 
@@ -32,7 +32,7 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
     +-----------------+      +----------------+     +-----------------+
   """
 
-  alias AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode
+  alias Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode
   defstruct head: nil, tail: nil, length: 0
 
   @type t :: %__MODULE__{
@@ -84,13 +84,13 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
       iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
 
       iex> D.new() |> D.append(1) |> D.append(2)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
-        head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedList{
+        head: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 1,
           left: nil,
-          right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
             value: 2,
-            left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
               value: 1,
               left: nil,
               right: nil
@@ -98,9 +98,9 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
             right: nil
           }
         },
-        tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+        tail: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 2,
-          left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
             value: 1,
             left: nil,
             right: nil
@@ -138,18 +138,18 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
       iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
 
       iex> DLL.new(1) |> DLL.append(2) |> DLL.insert(1, 3)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
-        head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedList{
+        head: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 1,
           left: nil,
-          right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
             value: 3,
-            left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
               value: 1,
               left: nil,
-              right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+              right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
                 value: 2,
-                left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
                   value: 1,
                   left: nil,
                   right: nil
@@ -157,9 +157,9 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
                 right: nil
               }
             },
-            right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
               value: 2,
-              left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+              left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
                 value: 1,
                 left: nil,
                 right: nil
@@ -168,9 +168,9 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
             }
           }
         },
-        tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+        tail: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 2,
-          left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
             value: 1,
             left: nil,
             right: nil
@@ -202,25 +202,25 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
       iex> aliasAlgostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
 
       iex> DLL.new(1) |> DLL.append(2) |> DLL.insert(1, 3) |> DLL.prepend(0)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
-        head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedList{
+        head: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 0,
           left: nil,
-          right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
             value: 1,
-            left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
               value: 0,
               left: nil,
               right: nil
             },
-            right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
               value: 3,
-              left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+              left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
                 value: 1,
                 left: nil,
-                right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
                   value: 2,
-                  left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                  left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
                     value: 1,
                     left: nil,
                     right: nil
@@ -228,9 +228,9 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
                   right: nil
                 }
               },
-              right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+              right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
                 value: 2,
-                left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
                   value: 1,
                   left: nil,
                   right: nil
@@ -240,11 +240,11 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
             }
           }
         },
-        tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+        tail: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 2,
-          left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
             value: 1,
-            left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
               value: 0,
               left: nil,
               right: nil
@@ -283,18 +283,18 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
       iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedList, as: DLL
 
       iex> DLL.new(1) |> DLL.append(2) |> DLL.insert(1, 3) |> DLL.prepend(0) |> DLL.delete(1)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList{
-        head: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedList{
+        head: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 0,
           left: nil,
-          right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
             value: 3,
-            left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
               value: 1,
               left: nil,
-              right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+              right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
                 value: 2,
-                left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+                left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
                   value: 1,
                   left: nil,
                   right: nil
@@ -302,9 +302,9 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
                 right: nil
               }
             },
-            right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
               value: 2,
-              left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+              left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
                 value: 1,
                 left: nil,
                 right: nil
@@ -313,11 +313,11 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedList do
             }
           }
         },
-        tail: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+        tail: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 2,
-          left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+          left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
             value: 1,
-            left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+            left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
               value: 0,
               left: nil,
               right: nil

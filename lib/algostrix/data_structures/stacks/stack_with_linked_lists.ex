@@ -1,4 +1,4 @@
-defmodule AlgoStrix.DataStructures.Stacks.StacksWithLinkedList do
+defmodule Algostrix.DataStructures.Stacks.StacksWithLinkedList do
   @moduledoc """
   Implementation of a Stack using Linked Lists.
 
@@ -10,15 +10,15 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLinkedList do
   - Pop: O(1)
 
   Ex:
-  %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
-    top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+  %Algostrix.DataStructures.Stacks.StacksWithLinkedList{
+    top: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
       value: "asdf",
-      next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+      next: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
         value: "my value",
         next: nil
       }
     },
-    bottom: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+    bottom: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
       value: "my value",
       next: nil
     },
@@ -37,7 +37,7 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLinkedList do
   """
   defstruct top: nil, bottom: nil, length: 0
 
-  alias AlgoStrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
+  alias Algostrix.DataStructures.Stacks.StackLinkedListNode, as: SLLN
 
   @type t :: %__MODULE__{top: nil | SLLN.t(), bottom: nil | SLLN.t(), length: integer()}
 
@@ -46,10 +46,10 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLinkedList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
+      iex> alias Algostrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
 
       iex> SLL.new()
-      %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
+      %Algostrix.DataStructures.Stacks.StacksWithLinkedList{
         top: nil,
         bottom: nil,
         length: 0
@@ -63,15 +63,15 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLinkedList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
+      iex> alias Algostrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
 
       iex> SLL.new("my value")
-      %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
-        top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+      %Algostrix.DataStructures.Stacks.StacksWithLinkedList{
+        top: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
           value: "my value",
           next: nil
         },
-        bottom: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+        bottom: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
           value: "my value",
           next: nil
         },
@@ -89,15 +89,15 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLinkedList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
+      iex> alias Algostrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
 
       iex> SLL.new() |> SLL.push("my value")
-      %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
-        top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+      %Algostrix.DataStructures.Stacks.StacksWithLinkedList{
+        top: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
           value: "my value",
           next: nil
         },
-        bottom: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+        bottom: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
           value: "my value",
           next: nil
         },
@@ -105,15 +105,15 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLinkedList do
       }
 
       iex> SLL.new() |> SLL.push("my value") |> SLL.push("asdf")
-      %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
-        top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+      %Algostrix.DataStructures.Stacks.StacksWithLinkedList{
+        top: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
           value: "asdf",
-          next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+          next: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
             value: "my value",
             next: nil
           }
         },
-        bottom: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+        bottom: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
           value: "my value",
           next: nil
         },
@@ -135,19 +135,19 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLinkedList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
+      iex> alias Algostrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
 
       iex> SLL.new(1) |> SLL.push(2) |> SLL.push(3) |> SLL.pop()
       {3,
-       %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
-         top: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+       %Algostrix.DataStructures.Stacks.StacksWithLinkedList{
+         top: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
            value: 2,
-           next: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+           next: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
              value: 1,
              next: nil
            }
          },
-         bottom: %AlgoStrix.DataStructures.Stacks.StackLinkedListNode{
+         bottom: %Algostrix.DataStructures.Stacks.StackLinkedListNode{
            value: 1,
            next: nil
          },
@@ -156,7 +156,7 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLinkedList do
 
       iex> SLL.new(1) |> SLL.pop()
       {1,
-       %AlgoStrix.DataStructures.Stacks.StacksWithLinkedList{
+       %Algostrix.DataStructures.Stacks.StacksWithLinkedList{
          top: nil,
          bottom: nil,
          length: 0
@@ -180,12 +180,12 @@ defmodule AlgoStrix.DataStructures.Stacks.StacksWithLinkedList do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
+      iex> alias Algostrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
 
       iex> SLL.new(1) |> SLL.push(2) |> SLL.push(3) |> SLL.peek()
       3
 
-      iex> alias AlgoStrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
+      iex> alias Algostrix.DataStructures.Stacks.StacksWithLinkedList, as: SLL
       iex> SLL.new() |> SLL.peek()
       nil
   """

@@ -1,4 +1,4 @@
-defmodule AlgoStrix.Extras do
+defmodule Algostrix.Extras do
   @moduledoc """
   Merge two sorted arrays keeping the sorting in the result.
   """

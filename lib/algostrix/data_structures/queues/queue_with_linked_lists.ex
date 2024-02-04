@@ -1,16 +1,16 @@
-defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
+defmodule Algostrix.DataStructures.Queues.QueueWithLinkedLists do
   @moduledoc """
   Implementation of a Queue using Linked Lists.
 
-  %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
-    first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+  %Algostrix.DataStructures.Queues.QueueWithLinkedList{
+    first: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
       value: "asdf",
-      next: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+      next: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
         value: "my value",
         next: nil
       }
     },
-    last: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+    last: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
       value: "my value",
       next: nil
     },
@@ -31,7 +31,7 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
   """
   defstruct first: nil, last: nil, length: 0
 
-  alias AlgoStrix.DataStructures.Queues.QueueLinkedListNode, as: QLLN
+  alias Algostrix.DataStructures.Queues.QueueLinkedListNode, as: QLLN
 
   @type t :: %__MODULE__{first: nil | QLLN.t(), last: nil | QLLN.t(), length: integer()}
 
@@ -40,10 +40,10 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
+      iex> alias Algostrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
 
       iex> QLL.new()
-      %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
+      %Algostrix.DataStructures.Queues.QueueWithLinkedList{
         first: nil,
         last: nil,
         length: 0
@@ -57,15 +57,15 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
+      iex> alias Algostrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
 
       iex> QLL.new("my value")
-      %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
-        first: %AlgoStrix.DataStructures.Queue.QueueLinkedListNode{
+      %Algostrix.DataStructures.Queues.QueueWithLinkedList{
+        first: %Algostrix.DataStructures.Queue.QueueLinkedListNode{
           value: "my value",
           next: nil
         },
-        last: %AlgoStrix.DataStructures.Queue.QueueLinkedListNode{
+        last: %Algostrix.DataStructures.Queue.QueueLinkedListNode{
           value: "my value",
           next: nil
         },
@@ -83,15 +83,15 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
+      iex> alias Algostrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
 
       iex> QLL.new() |> QLL.enqueue("my value")
-      %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
-        first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+      %Algostrix.DataStructures.Queues.QueueWithLinkedList{
+        first: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
           value: "my value",
           next: nil
         },
-        last: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+        last: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
           value: "my value",
           next: nil
         },
@@ -99,15 +99,15 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
       }
 
       iex> QLL.new() |> QLL.enqueue("my value") |> QLL.enqueue("asdf")
-      %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
-        first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+      %Algostrix.DataStructures.Queues.QueueWithLinkedList{
+        first: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
           value: "my value",
-          next: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+          next: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
             value: "asdf",
             next: nil
           }
         },
-        last: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+        last: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
           value: "asdf",
           next: nil
         },
@@ -130,19 +130,19 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
+      iex> alias Algostrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
 
       iex> QLL.new(1) |> QLL.enqueue(2) |> QLL.enqueue(3) |> QLL.dequeue()
       {3,
-       %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
-         first: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+       %Algostrix.DataStructures.Queues.QueueWithLinkedList{
+         first: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
            value: 2,
-           next: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+           next: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
              value: 3,
              next: nil
            }
          },
-         last: %AlgoStrix.DataStructures.Queues.QueueLinkedListNode{
+         last: %Algostrix.DataStructures.Queues.QueueLinkedListNode{
            value: 3,
            next: nil
          },
@@ -151,7 +151,7 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
       iex> QLL.new(1) |> QLL.dequeue()
       {1,
-       %AlgoStrix.DataStructures.Queues.QueueWithLinkedList{
+       %Algostrix.DataStructures.Queues.QueueWithLinkedList{
          first: nil,
          last: nil,
          length: 0
@@ -175,7 +175,7 @@ defmodule AlgoStrix.DataStructures.Queues.QueueWithLinkedLists do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
+      iex> alias Algostrix.DataStructures.Queues.QueueWithLinkedList, as: QLL
 
       iex> QLL.new(1) |> QLL.enqueue(2) |> QLL.enqueue(3) |> QLL.peek()
       3

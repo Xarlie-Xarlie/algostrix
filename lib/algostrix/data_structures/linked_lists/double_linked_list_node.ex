@@ -1,4 +1,4 @@
-defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode do
+defmodule Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode do
   @moduledoc """
   Double Linked List Node.
 
@@ -13,10 +13,10 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode do
 
   ## Examples:
 
-      iex> alias AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode
+      iex> alias Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode
 
       iex> DoubleLinkedListNode.new()
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
         value: nil,
         left: nil,
         right: nil
@@ -31,35 +31,35 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode do
   ## Examples:
 
       iex> DoubleLinkedListNode.new(1, nil, nil)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
         value: 1,
         left: nil,
         right: nil
       }
 
       iex> n1 = DoubleLinkedListNode.new(1)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
         value: 1,
         left: nil,
         right: nil
       }
 
       iex> n2 = DoubleLinkedListNode.new(2)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
         value: 2,
         left: nil,
         right: nil
       }
 
       iex> DoubleLinkedListNode.new(3, n1, n2)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
         value: 3,
-        left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+        left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 2,
           left: nil,
           right: nil
         },
-        right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+        right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 1,
           left: nil,
           right: nil
@@ -77,23 +77,23 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode do
   ## Examples:
 
       iex> n1 = DoubleLinkedListNode.new(1)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
         value: 1,
         left: nil,
         right: nil
       }
 
       iex> n2 = DoubleLinkedListNode.new(2)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
         value: 2,
         left: nil,
         right: nil
       }
 
       iex> DoubleLinkedListNode(n2, n1)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
         value: 2,
-        left: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+        left: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 1,
           left: nil,
           right: nil
@@ -112,24 +112,24 @@ defmodule AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode do
   ## Examples:
 
       iex> n1 = DoubleLinkedListNode.new(1)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
         value: 1,
         left: nil,
         right: nil
       }
 
       iex> n2 = DoubleLinkedListNode.new(2)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
         value: 2,
         left: nil,
         right: nil
       }
 
       iex> DoubleLinkedListNode(n2, n1)
-      %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+      %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
         value: 2,
         left: nil,
-        right: %AlgoStrix.DataStructures.LinkedLists.DoubleLinkedListNode{
+        right: %Algostrix.DataStructures.LinkedLists.DoubleLinkedListNode{
           value: 1,
           left: nil,
           right: nil
