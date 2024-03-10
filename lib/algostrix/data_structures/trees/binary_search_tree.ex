@@ -40,6 +40,7 @@ defmodule Algostrix.DataStructures.Trees.BinarySearchTree do
   """
 
   alias Algostrix.DataStructures.Trees.BinaryTreeNode, as: BTN
+  alias Algostrix.DataStructures.Queues.QueueWithList, as: Queue
 
   defstruct root: nil
 
@@ -253,6 +254,7 @@ defmodule Algostrix.DataStructures.Trees.BinarySearchTree do
       iex> alias Algostrix.DataStructures.Trees.BinarySearchTree, as: BST
 
       iex> tree = Enum.reduce(1..1000, BST.new(), &BST.insert(&2, &1))
+      %Algostrix.DataStructures.Trees.BinarySearchTree{...}
 
       iex> BST.size(tree)
       1000
@@ -457,6 +459,73 @@ defmodule Algostrix.DataStructures.Trees.BinarySearchTree do
     |> acc_list_pos_order(right)
     |> then(&[value | &1])
     |> Enum.reverse()
+  end
+
+  @doc """
+  Performs a Breadth First Search (BFS) traversal on a tree or
+  graph starting from the root node.
+
+  Breadth First Search explores nodes in a level-wise manner,
+  starting from the root node and visiting all adjacent nodes
+  before moving to the next level.
+
+  It uses a queue data structure to keep track of the nodes to visit,
+  ensuring that nodes are visited in the order they were discovered.
+  BFS is often used to find the shortest path from the root node
+  to any other node in unweighted graphs.
+
+  BFS has a time complexity of O(V + E), where V is the number of
+  vertices (nodes) and E is the number of edges in the graph.
+
+  It has a space complexity of O(V), as it stores at most
+  all the vertices in the queue during traversal.
+
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.Trees.BinarySearchTree, as: BST
+
+      iex> tree = Enum.reduce(
+        [17, 50, 8, 25, 70, 4, 20, 60, 10, 30, 80, 2, 15, 40, 90],
+        BST.new(),
+        &BST.insert(&2, &1)
+      )
+      %Algostrix.DataStructures.Trees.BinarySearchTree{...}
+
+      iex> Algostrix.Algorithms.Searching.BFS.breadth_first_search(tree)
+      [17, 8, 50, 4, 10, 25, 70, 2, 15, 20, 30, 60, 80, 40, 90]
+  """
+  @spec breadth_first_search(t()) :: [term()]
+  def breadth_first_search(%__MODULE__{root: nil}), do: []
+
+  def breadth_first_search(%__MODULE__{root: root}) do
+    Queue.new(root)
+    |> bfs([])
+  end
+
+  @spec bfs(Queue.t(), [term()]) :: [term()]
+  defp bfs(%Queue{items: []}, list), do: Enum.reverse(list)
+
+  defp bfs(%Queue{} = queue, list) do
+    case Queue.dequeue(queue) do
+      {%BTN{right: nil, left: nil, value: value}, queue} ->
+        bfs(queue, [value | list])
+
+      {%BTN{right: nil, left: left, value: value}, queue} ->
+        queue
+        |> Queue.enqueue(left)
+        |> bfs([value | list])
+
+      {%BTN{right: right, left: nil, value: value}, queue} ->
+        queue
+        |> Queue.enqueue(right)
+        |> bfs([value | list])
+
+      {%BTN{right: right, left: left, value: value}, queue} ->
+        queue
+        |> Queue.enqueue(left)
+        |> Queue.enqueue(right)
+        |> bfs([value | list])
+    end
   end
 
   @spec in_order(nil | BTN.t()) :: :ok
