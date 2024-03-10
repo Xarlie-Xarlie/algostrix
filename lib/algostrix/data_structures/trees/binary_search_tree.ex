@@ -502,6 +502,22 @@ defmodule Algostrix.DataStructures.Trees.BinarySearchTree do
     |> bfs([])
   end
 
+  @doc """
+  Validate if a tree is a valid Binary Search Tree.
+  """
+  @spec is_valid_bst?(t()) :: boolean()
+  def is_valid_bst?(%__MODULE__{root: nil}), do: true
+
+  def is_valid_bst?(%__MODULE__{} = tree) do
+    to_list_in_order(tree)
+    |> is_ascending?()
+  end
+
+  @spec is_ascending?([term()]) :: boolean()
+  defp is_ascending?([head, next | _tail]) when head > next, do: false
+  defp is_ascending?([head, next | tail]) when head < next, do: is_ascending?([next | tail])
+  defp is_ascending?(_), do: true
+
   @spec bfs(Queue.t(), [term()]) :: [term()]
   defp bfs(%Queue{items: []}, list), do: Enum.reverse(list)
 
