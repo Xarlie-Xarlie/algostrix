@@ -504,6 +504,50 @@ defmodule Algostrix.DataStructures.Trees.BinarySearchTree do
 
   @doc """
   Validate if a tree is a valid Binary Search Tree.
+
+  When you travese in order, you should receive
+  ascending elements.
+
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.Trees.BinarySearchTree, as: BST
+
+      iex> tree = %Algostrix.DataStructures.Trees.BinarySearchTree{
+        root: %Algostrix.DataStructures.Trees.BinaryTreeNode{
+          right: %Algostrix.DataStructures.Trees.BinaryTreeNode{
+            right: %Algostrix.DataStructures.Trees.BinaryTreeNode{
+              right: nil,
+              left: nil,
+              value: 7
+            },
+            left: %Algostrix.DataStructures.Trees.BinaryTreeNode{
+              right: nil,
+              left: nil,
+              value: 3
+            },
+            value: 6
+          },
+          left: %Algostrix.DataStructures.Trees.BinaryTreeNode{
+            right: nil,
+            left: nil,
+            value: 4
+          },
+          value: 5
+        }
+      }
+      tree:
+
+          5
+         \/ \\
+        4   6
+           \/ \\
+          3   7
+
+      iex> BST.is_valid_bst?(tree)
+      false
+
+      iex> BST.new() |> BST.is_valid_bst?()
+      true
   """
   @spec is_valid_bst?(t()) :: boolean()
   def is_valid_bst?(%__MODULE__{root: nil}), do: true
