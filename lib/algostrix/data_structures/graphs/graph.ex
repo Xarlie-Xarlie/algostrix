@@ -1,20 +1,4 @@
 defmodule Algostrix.DataStructures.Graphs.Graph do
-  # %Algostrix.DataStructures.Graphs.Graph{
-  #   connected_nodes: %{
-  #     0 => [6, 5, 4, 2, 1],
-  #     1 => [0],
-  #     2 => [0],
-  #     3 => [4],
-  #     4 => [7, 3, 0],
-  #     5 => [0],
-  #     6 => [0],
-  #     7 => [8, 4],
-  #     8 => ~c"\t\a",
-  #     9 => ~c"\b"
-  #   },
-  #   number_of_nodes: 10
-  # }
-
   @moduledoc """
   This module provides functionality for working with undirected
   graphs using an adjacency list representation.
@@ -136,6 +120,50 @@ defmodule Algostrix.DataStructures.Graphs.Graph do
     |> IO.puts()
   end
 
+  @doc """
+  Performs a graph breadth first search traversal.
+
+  Returns a map, with a level and the nodes that
+  are connected to that level.
+
+  If you have a node "n1", and use it as source.
+  It could returns: %{1: ["n2", "n3"], 2: ["n4"]}
+  Which means that "n2" and "n3" are directly con-
+  nected to the node "n1", but "n4" is connected 
+  to "n2" or "n3" not directly connected to "n1".
+
+  ## Examples:
+    
+      iex> alias Algostrix.DataStructures.Graphs.Graph, as: Graphs
+
+      iex> g = %Algostrix.DataStructures.Graphs.Graph{
+        connected_nodes: %{
+          0 => [6, 5, 4, 2, 1],
+          1 => [0],
+          2 => [0],
+          3 => [4],
+          4 => [7, 3, 0],
+          5 => [0],
+          6 => [0],
+          7 => [8, 4],
+          8 => [7, 9],
+          9 => [8]
+        },
+        number_of_nodes: 10
+      }
+
+      iex> Graphs.breadth_first_search(g, 0)
+      %{
+        1 => [6, 5, 4, 2, 1],
+        2 => [7, 3],
+        3 => [8],
+        4 => [9]
+      }
+
+      iex> Graphs.breadth_first_search(g, 4)
+      %{1 => [7, 3, 0], 2 => [8, 6, 5, 2, 1], 3 => [9]}
+  """
+  @spec breadth_first_search(t(), term()) :: map()
   def breadth_first_search(%__MODULE__{connected_nodes: connected_nodes}, source) do
     case Map.get(connected_nodes, source) do
       nil ->
