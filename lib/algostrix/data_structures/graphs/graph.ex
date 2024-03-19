@@ -174,6 +174,73 @@ defmodule Algostrix.DataStructures.Graphs.Graph do
     end
   end
 
+  @doc """
+  Performs a graph depth first search traversal.
+
+  Returns a list of nodes that were found during
+  traversal.
+
+  It goes deep as it can in the graph.
+
+  "Is there any path to this node?".
+
+  ## Examples:
+
+      iex> alias Algostrix.DataStructures.Graphs.Graph, as: Graphs
+
+      iex> g = %Algostrix.DataStructures.Graphs.Graph{
+        connected_nodes: %{
+          0 => [6, 5, 4, 2, 1],
+          1 => [0],
+          2 => [0],
+          3 => [4],
+          4 => [7, 3, 0],
+          5 => [0],
+          6 => [0],
+          7 => [8, 4],
+          8 => [7, 9],
+          9 => [8]
+        },
+        number_of_nodes: 10
+      }
+
+      iex> Graphs.depth_first_search(g, 0)
+      [3, 9, 8, 7, 6, 5, 4, 2, 1]
+
+      iex> Graphs.depth_first_search(g, 4)
+      [1, 2, 5, 6, 9, 8, 7, 3, 0]
+  """
+  @spec depth_first_search(t(), term()) :: [dfs :: term()]
+  def depth_first_search(%__MODULE__{connected_nodes: connected_nodes}, source) do
+    case Map.get(connected_nodes, source) do
+      nil ->
+        nil
+
+      connections ->
+        dfs(connected_nodes, connections, connections, [source])
+        |> elem(0)
+    end
+  end
+
+  @spec dfs(map(), [term()], [term()], [term()]) :: {bfs :: [term()], visited_nodes :: [term()]}
+  defp dfs(connected_nodes, dfs, nodes_to_visit, visited_nodes) do
+    Enum.reject(nodes_to_visit, &(&1 in visited_nodes))
+    |> Enum.reduce({dfs, visited_nodes}, fn connection, {dfs, visited_nodes} ->
+      unless connection in visited_nodes do
+        new_nodes_to_visit = Map.get(connected_nodes, connection)
+        acc_dfs = if connection not in dfs, do: [connection | dfs], else: dfs
+        acc_visited_nodes = [connection | visited_nodes]
+
+        {new_dfs, new_visited_nodes} =
+          dfs(connected_nodes, acc_dfs, new_nodes_to_visit, acc_visited_nodes)
+
+        {new_dfs, new_visited_nodes}
+      else
+        {dfs, visited_nodes}
+      end
+    end)
+  end
+
   @spec bfs(map(), [term()], pos_integer(), map(), [term()]) :: map()
   defp bfs(
          connected_nodes,
